@@ -1,494 +1,703 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siddhartha Pindi | AI & Data Product Manager Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Mermaid.js for Rendering Interactive Flowcharts -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: false, theme: 'dark' });
-  </script>
-</head>
-<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
+  <meta name="theme-color" content="#101b2d" />
+  <meta name="description" content="Siddhartha Pindi — AI & Data Product Manager. Explore AI product case studies, product strategy, enterprise platforms, workflow automation, and measurable outcomes." />
+  <title>Siddhartha Pindi | AI Product Portfolio</title>
+  <style>
+    :root {
+      --ink: #142338;
+      --ink-2: #263b53;
+      --muted: #607186;
+      --muted-2: #8190a2;
+      --paper: #f4f7fb;
+      --surface: #ffffff;
+      --line: #dfe6ee;
+      --navy: #101b2d;
+      --navy-2: #172940;
+      --teal: #14b8a6;
+      --teal-dark: #0b887f;
+      --blue: #477be0;
+      --blue-soft: #eaf0ff;
+      --teal-soft: #e4f8f5;
+      --violet-soft: #f1eefe;
+      --amber-soft: #fff4df;
+      --shadow: 0 18px 44px rgba(17, 32, 52, .09);
+      --radius: 18px;
+    }
 
-  <!-- Sticky Professional Header -->
-  <header class="border-b border-slate-800/80 bg-[#0b0f19]/90 sticky top-0 z-40 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-      <div>
-        <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-          <span class="text-cyan-400 font-mono tracking-wider uppercase text-xs">AI Technical Product Manager</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl font-extrabold mt-1 text-white tracking-tight">Pindi Srinivasa Shanmukha Siddhartha</h1>
-      </div>
-      <div class="flex flex-wrap gap-2 text-sm">
-        <a href="mailto:siddhartha.p1610@gmail.com" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-4 py-2 rounded-lg transition shadow-lg shadow-cyan-500/10">Email Me</a>
-        <a href="https://www.linkedin.com/in/siddhartha-pindi" target="_blank" class="border border-slate-700 hover:border-cyan-400 hover:text-cyan-400 px-4 py-2 rounded-lg transition bg-slate-900/50">LinkedIn</a>
-      </div>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.modal-open { overflow: hidden; }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      color: #e8eef7;
+      background: rgba(16, 27, 45, .98);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 760; letter-spacing: -.025em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px;
+      color: white; background: linear-gradient(135deg, var(--teal), #4387e9); font-size: 13px; font-weight: 850;
+      box-shadow: 0 7px 18px rgba(20,184,166,.24);
+    }
+    .brand-caption { display: block; color: #a7b4c6; font-size: 11px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; margin-top: -2px; }
+    .nav { display: flex; align-items: center; gap: 24px; font-size: 13px; color: #cad5e3; }
+    .nav a { text-decoration: none; transition: color .18s ease; }
+    .nav a:hover { color: white; }
+    .nav .contact-link { padding: 9px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; }
+
+    .hero {
+      position: relative; overflow: hidden; color: white;
+      background: radial-gradient(circle at 87% 18%, rgba(20,184,166,.20), transparent 26%),
+                  radial-gradient(circle at 70% 95%, rgba(71,123,224,.18), transparent 32%),
+                  linear-gradient(120deg, #101b2d 0%, #142942 72%, #173b4c 100%);
+      padding: 70px 0 62px;
+    }
+    .hero::after {
+      content: ""; position: absolute; right: -85px; top: -115px; width: 390px; height: 390px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.08); box-shadow: 0 0 0 32px rgba(255,255,255,.018), 0 0 0 70px rgba(255,255,255,.012); pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .75fr); align-items: center; gap: 58px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #9ce8df; letter-spacing: .14em; text-transform: uppercase; font-size: 11px; font-weight: 800; }
+    .eyebrow::before { content: ""; height: 2px; width: 25px; background: var(--teal); border-radius: 2px; }
+    h1 { margin: 15px 0 8px; font-size: clamp(38px, 5.2vw, 62px); line-height: 1.04; letter-spacing: -.055em; font-weight: 790; }
+    .hero-title { color: #bcd0e8; font-size: clamp(17px, 2vw, 22px); font-weight: 550; letter-spacing: -.025em; margin: 0 0 19px; }
+    .hero-copy { max-width: 670px; color: #c8d4e2; font-size: 15px; line-height: 1.8; margin: 0; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn-primary, .btn-secondary { display: inline-flex; align-items: center; gap: 9px; min-height: 43px; padding: 0 17px; border-radius: 10px; text-decoration: none; font-size: 13px; font-weight: 750; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .btn-primary { color: #092c32; background: #7de4d8; box-shadow: 0 8px 22px rgba(20,184,166,.2); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(20,184,166,.3); background: #a0f0e7; }
+    .btn-secondary { color: #ecf3fb; border: 1px solid rgba(255,255,255,.24); background: rgba(255,255,255,.045); }
+    .btn-secondary:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+    .hero-panel { background: rgba(255,255,255,.065); border: 1px solid rgba(255,255,255,.12); border-radius: 22px; padding: 24px; backdrop-filter: blur(12px); box-shadow: 0 18px 45px rgba(0,0,0,.12); }
+    .panel-label { color: #a9bdcf; font-weight: 750; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
+    .hero-metrics { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin-top: 17px; }
+    .hero-metric { border-radius: 14px; border: 1px solid rgba(255,255,255,.09); background: rgba(8,18,31,.19); padding: 17px 14px; }
+    .hero-metric strong { display: block; color: #8ceadd; font-size: 27px; line-height: 1.08; letter-spacing: -.04em; }
+    .hero-metric span { display: block; color: #c3d0df; font-size: 11px; line-height: 1.4; margin-top: 8px; }
+    .metric-note { color: #9aabc0; font-size: 11px; margin: 16px 0 0; }
+
+    .section { padding: 65px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 27px; }
+    .section-kicker { color: var(--teal-dark); font-size: 11px; letter-spacing: .15em; font-weight: 850; text-transform: uppercase; }
+    h2 { margin: 7px 0 7px; font-size: clamp(27px, 3.1vw, 38px); letter-spacing: -.045em; line-height: 1.15; }
+    .section-description { color: var(--muted); margin: 0; max-width: 700px; font-size: 14px; }
+    .project-count { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+    .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { color: #52647a; border: 1px solid #d8e1eb; background: rgba(255,255,255,.65); border-radius: 999px; padding: 8px 13px; font-size: 12px; font-weight: 720; transition: all .18s ease; }
+    .filter-btn:hover { border-color: #9eb4c9; color: var(--ink); }
+    .filter-btn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: white; box-shadow: 0 5px 12px rgba(16,27,45,.12); }
+    .search-wrap { min-width: min(100%, 255px); position: relative; }
+    .search-wrap svg { width: 16px; height: 16px; position: absolute; left: 13px; top: 50%; transform: translateY(-50%); stroke: #77879a; }
+    .search-input { width: 100%; color: var(--ink); background: white; border: 1px solid #dbe4ed; border-radius: 10px; padding: 10px 13px 10px 38px; outline: none; font-size: 12px; transition: border .18s, box-shadow .18s; }
+    .search-input:focus { border-color: #58b9b2; box-shadow: 0 0 0 3px rgba(20,184,166,.13); }
+
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 17px; }
+    .project-card {
+      display: flex; flex-direction: column; text-align: left; color: inherit; min-width: 0; width: 100%;
+      padding: 21px; border: 1px solid #e0e7ef; border-radius: var(--radius); background: var(--surface); box-shadow: 0 4px 14px rgba(17,32,52,.025);
+      position: relative; overflow: hidden; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; animation: card-in .45s both;
+    }
+    .project-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--accent, var(--teal)); transform: scaleY(0); transform-origin: bottom; transition: transform .25s ease; }
+    .project-card:hover, .project-card:focus-visible { transform: translateY(-5px); border-color: #b9d7d8; box-shadow: var(--shadow); outline: none; }
+    .project-card:hover::before, .project-card:focus-visible::before { transform: scaleY(1); }
+    .project-card:focus-visible { box-shadow: 0 0 0 3px rgba(20,184,166,.24), var(--shadow); }
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .project-icon { display: grid; place-items: center; width: 43px; height: 43px; flex: 0 0 auto; border-radius: 13px; background: var(--icon-bg, var(--teal-soft)); color: var(--accent, var(--teal-dark)); font-size: 15px; font-weight: 850; letter-spacing: -.04em; }
+    .card-arrow { display: grid; place-items: center; width: 30px; height: 30px; color: #7d8da0; background: #f4f7fa; border-radius: 50%; transition: transform .2s ease, color .2s ease, background .2s ease; }
+    .project-card:hover .card-arrow { transform: translate(2px,-2px); color: white; background: var(--accent, var(--teal)); }
+    .project-type { display: inline-flex; align-self: flex-start; font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--accent, var(--teal-dark)); background: var(--icon-bg, var(--teal-soft)); padding: 5px 8px; border-radius: 6px; margin-top: 18px; }
+    .project-title { display: block; font-size: 17px; line-height: 1.35; font-weight: 780; letter-spacing: -.025em; margin: 12px 0 8px; }
+    .project-summary { display: block; color: var(--muted); font-size: 12px; line-height: 1.72; flex: 1; }
+    .card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 20px; padding-top: 15px; border-top: 1px solid #edf1f5; }
+    .metric-pill { font-size: 11px; font-weight: 800; color: #23445a; background: #eef5f7; padding: 6px 9px; border-radius: 7px; max-width: 76%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .open-label { color: #6b7f93; font-size: 10px; font-weight: 800; white-space: nowrap; }
+    .no-results { grid-column: 1 / -1; text-align: center; padding: 44px 20px; color: var(--muted); border: 1px dashed #cbd7e4; border-radius: 16px; background: rgba(255,255,255,.6); }
+
+    .capabilities { background: white; border-top: 1px solid #e8edf3; border-bottom: 1px solid #e8edf3; }
+    .capability-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; margin-top: 24px; }
+    .capability { padding: 18px; border: 1px solid #e5ebf2; border-radius: 14px; background: linear-gradient(150deg, #fff, #fbfcfe); }
+    .capability-icon { display: grid; place-items: center; color: var(--teal-dark); background: var(--teal-soft); border-radius: 10px; width: 36px; height: 36px; font-size: 15px; font-weight: 900; margin-bottom: 13px; }
+    .capability h3 { font-size: 13px; margin: 0 0 5px; letter-spacing: -.01em; }
+    .capability p { font-size: 11px; color: var(--muted); margin: 0; line-height: 1.65; }
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
+    .skill { color: #445970; background: #f1f5f9; border: 1px solid #e3e9f0; border-radius: 8px; padding: 7px 10px; font-size: 11px; font-weight: 650; }
+    .closing { color: white; background: linear-gradient(115deg, #101b2d, #16364a); padding: 38px 0; }
+    .closing-inner { display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .closing h2 { font-size: 22px; margin: 0 0 6px; }
+    .closing p { color: #b9c8d9; margin: 0; font-size: 12px; }
+    .closing .btn-primary { flex: 0 0 auto; }
+    footer { background: #0c1524; color: #8fa0b4; font-size: 10px; padding: 18px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .footer-inner a { color: #c8d3e0; text-decoration: none; }
+
+    /* Project detail modal */
+    .modal[hidden] { display: none; }
+    .modal { position: fixed; z-index: 100; inset: 0; display: flex; justify-content: center; align-items: center; padding: 18px; }
+    .modal-backdrop { position: absolute; inset: 0; background: rgba(7,15,27,.72); backdrop-filter: blur(7px); opacity: 0; transition: opacity .22s ease; }
+    .modal-panel { position: relative; z-index: 1; width: min(1080px, 100%); max-height: min(92vh, 930px); overflow: auto; overscroll-behavior: contain; background: #f7f9fc; border-radius: 22px; box-shadow: 0 30px 100px rgba(0,0,0,.34); opacity: 0; transform: translateY(15px) scale(.985); transition: opacity .24s ease, transform .24s ease; }
+    .modal.is-open .modal-backdrop { opacity: 1; }
+    .modal.is-open .modal-panel { opacity: 1; transform: translateY(0) scale(1); }
+    .modal-top { padding: 25px 28px 24px; color: white; background: radial-gradient(circle at 90% 0%, rgba(20,184,166,.19), transparent 32%), linear-gradient(120deg, #101b2d, #173247); border-radius: 22px 22px 0 0; position: relative; }
+    .modal-close { position: absolute; top: 17px; right: 17px; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; color: white; background: rgba(255,255,255,.07); font-size: 22px; line-height: 1; transition: background .18s; }
+    .modal-close:hover { background: rgba(255,255,255,.16); }
+    .modal-kicker { color: #94e7dd; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-weight: 850; }
+    .modal-title { margin: 8px 58px 6px 0; font-size: clamp(25px, 3vw, 35px); letter-spacing: -.04em; line-height: 1.15; }
+    .modal-subtitle { color: #c3d2e0; font-size: 13px; margin: 0; max-width: 800px; }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
+    .modal-tag { padding: 5px 9px; border-radius: 7px; color: #dbe8f3; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.08); font-size: 10px; }
+    .modal-content { padding: 25px 28px 30px; }
+    .impact-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin-bottom: 24px; }
+    .impact-card { min-height: 92px; padding: 14px; border: 1px solid #dfe7ef; border-radius: 13px; background: white; }
+    .impact-value { font-size: 21px; font-weight: 850; letter-spacing: -.045em; color: #0d877e; line-height: 1.15; overflow-wrap: anywhere; }
+    .impact-label { margin-top: 7px; color: #52657b; font-size: 10px; line-height: 1.4; }
+    .detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 13px; margin-bottom: 22px; }
+    .detail-card { background: white; border: 1px solid #e1e8f0; border-radius: 14px; padding: 18px; }
+    .detail-card h3, .workflow-heading h3 { display: flex; align-items: center; gap: 8px; color: #192e45; font-size: 13px; margin: 0 0 9px; letter-spacing: -.01em; }
+    .detail-card h3::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--teal); }
+    .detail-card p { color: #5f7083; font-size: 12px; line-height: 1.75; margin: 0; }
+    .detail-card ul { margin: 0; padding-left: 16px; color: #5f7083; font-size: 12px; line-height: 1.8; }
+    .detail-card li + li { margin-top: 4px; }
+    .workflow-card { border: 1px solid #dce6ed; border-radius: 16px; padding: 20px; background: linear-gradient(150deg, #fff, #f9fbfe); margin-bottom: 18px; }
+    .workflow-heading { display: flex; align-items: start; justify-content: space-between; gap: 15px; margin-bottom: 15px; }
+    .workflow-heading h3 { margin-bottom: 3px; font-size: 15px; }
+    .workflow-heading p { color: var(--muted); font-size: 11px; margin: 0; }
+    .workflow-note { font-size: 10px; color: #718397; background: #edf3f8; border-radius: 7px; padding: 6px 9px; white-space: nowrap; }
+    .flow-scroll { overflow-x: auto; padding: 4px 2px 10px; scrollbar-color: #bdccd8 transparent; scrollbar-width: thin; }
+    .flowchart { display: flex; align-items: stretch; gap: 9px; min-width: max-content; }
+    .flow-node { width: 145px; min-height: 133px; white-space: normal; border-radius: 12px; border: 1px solid #dbe5ed; background: white; padding: 12px 11px; box-shadow: 0 3px 9px rgba(17,32,52,.035); position: relative; }
+    .flow-number { display: grid; place-items: center; width: 23px; height: 23px; border-radius: 7px; color: #08796f; background: #daf6f0; font-size: 10px; font-weight: 900; margin-bottom: 10px; }
+    .flow-node strong { display: block; font-size: 11px; line-height: 1.35; color: #1b3046; margin-bottom: 6px; }
+    .flow-node span:last-child { display: block; color: #6b7a8c; font-size: 10px; line-height: 1.55; }
+    .flow-arrow { display: grid; place-items: center; color: #6a9caa; font-size: 20px; font-weight: 500; width: 17px; flex: 0 0 17px; }
+    .bottom-detail-grid { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(240px,.75fr); gap: 13px; }
+    .tech-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tech-pill { color: #435b72; background: #f1f5f9; border: 1px solid #e1e8f0; border-radius: 7px; padding: 6px 8px; font-size: 10px; font-weight: 650; }
+    .modal-disclaimer { color: #77879a; font-size: 10px; line-height: 1.6; margin: 18px 0 0; }
+
+    @keyframes card-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 980px) {
+      .hero-grid { gap: 30px; grid-template-columns: minmax(0,1.1fr) minmax(265px,.8fr); }
+      .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .capability-grid { grid-template-columns: repeat(2,1fr); }
+      .impact-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 28px, 1180px); }
+      .topbar-inner { min-height: 64px; }
+      .nav { gap: 12px; }
+      .nav a:not(.contact-link) { display: none; }
+      .hero { padding: 49px 0 42px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-panel { max-width: none; }
+      .section { padding: 48px 0; }
+      .section-head { align-items: start; flex-direction: column; gap: 7px; }
+      .toolbar { align-items: stretch; }
+      .filters { order: 2; }
+      .search-wrap { width: 100%; order: 1; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { padding: 19px; }
+      .capability-grid { grid-template-columns: 1fr 1fr; }
+      .closing-inner { align-items: flex-start; flex-direction: column; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .modal { padding: 7px; }
+      .modal-panel { max-height: 96vh; border-radius: 17px; }
+      .modal-top { padding: 23px 19px 20px; border-radius: 17px 17px 0 0; }
+      .modal-content { padding: 18px 15px 22px; }
+      .detail-grid, .bottom-detail-grid { grid-template-columns: 1fr; }
+      .workflow-card { padding: 15px 12px; }
+      .workflow-heading { flex-direction: column; }
+      .workflow-note { white-space: normal; }
+      .impact-grid { gap: 8px; }
+      .impact-card { padding: 11px; min-height: 86px; }
+      .impact-value { font-size: 19px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="Siddhartha Pindi portfolio home">
+        <span class="brand-mark">SP</span>
+        <span>Siddhartha Pindi<span class="brand-caption">AI & Data Product Portfolio</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#capabilities">Capabilities</a>
+        <a class="contact-link" href="mailto:siddhartha.p1610@gmail.com">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6 py-12 space-y-16">
-
-    <!-- Executive Summary -->
-    <section class="bg-gradient-to-br from-slate-900/90 to-slate-900/40 border border-slate-800 rounded-2xl p-8 backdrop-blur-sm shadow-xl">
-      <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 font-mono text-cyan-400">
-        // EXECUTIVE_SUMMARY
-      </h2>
-      <ul class="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
-        <li class="flex items-start gap-3">
-          <span class="text-cyan-400 mt-1">▸</span>
-          <span>AI & Data Product Manager with 6+ years of experience owning and delivering embedded AI/ML products and trustworthy Agentic AI systems from concept to production across enterprise automotive retail SaaS, cloud, and SAP platforms[cite: 2].</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-cyan-400 mt-1">▸</span>
-          <span>Lead cross-functional Data Science & AI/ML Engineering teams to ship LLM-powered agents, hybrid predictive models, and real-time inference engines that drove 14% sales conversion, 12% service revenue, and 40% faster agent response times[cite: 2].</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-cyan-400 mt-1">▸</span>
-          <span>Proven track record in end-to-end product lifecycle ownership, driving vision definition, roadmap planning, feature prioritization, and lifecycle optimization across AI product innovation and enterprise platform strategy[cite: 2].</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-cyan-400 mt-1">▸</span>
-          <span>Achieved 4x active user growth and 300% feature adoption through A/B testing, behavioral analytics, structured journey mapping, and platform evangelization[cite: 2].</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-cyan-400 mt-1">▸</span>
-          <span>Capable of bridging technical execution with CXO decision-making across IT and Go-To-Market strategy, unlocking €10Mn+ whitespace opportunities through enterprise sales intelligence and competitive positioning[cite: 2].</span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Quantified Metrics Grid -->
-    <section>
-      <h2 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-mono text-cyan-400">
-        // QUANTIFIED_BUSINESS_IMPACT
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
-        <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition group">
-          <p class="text-3xl font-extrabold text-cyan-400 group-hover:scale-105 transition transform origin-left">36%–40%</p>
-          <p class="text-xs md:text-sm text-slate-400 mt-2 font-medium">Faster Agent Response Times via Gen AI Leads Assistant[cite: 2]</p>
-        </div>
-        <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition group">
-          <p class="text-3xl font-extrabold text-cyan-400 group-hover:scale-105 transition transform origin-left">+14%</p>
-          <p class="text-xs md:text-sm text-slate-400 mt-2 font-medium">Sales Conversion Lift via Hybrid LLM + ML Propensity Engine[cite: 2]</p>
-        </div>
-        <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition group">
-          <p class="text-3xl font-extrabold text-cyan-400 group-hover:scale-105 transition transform origin-left">+12%</p>
-          <p class="text-xs md:text-sm text-slate-400 mt-2 font-medium">Service-Hub Revenue Growth via Predictive ML Optimizer[cite: 2]</p>
-        </div>
-        <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition group">
-          <p class="text-3xl font-extrabold text-cyan-400 group-hover:scale-105 transition transform origin-left">2 Hours</p>
-          <p class="text-xs md:text-sm text-slate-400 mt-2 font-medium">Turnaround Time Saved per Quote via ML Quote Agent[cite: 2]</p>
-        </div>
-        <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition group">
-          <p class="text-3xl font-extrabold text-cyan-400 group-hover:scale-105 transition transform origin-left">4x / 300%</p>
-          <p class="text-xs md:text-sm text-slate-400 mt-2 font-medium">Active User Growth & Feature Adoption on Innovation Platforms[cite: 2]</p>
-        </div>
-        <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition group">
-          <p class="text-3xl font-extrabold text-cyan-400 group-hover:scale-105 transition transform origin-left">€10Mn+</p>
-          <p class="text-xs md:text-sm text-slate-400 mt-2 font-medium">Whitespace Unlocked & €7Mn Avg. Enterprise Deal Pursuits[cite: 2]</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive Project Portfolio Cards -->
-    <section>
-      <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
         <div>
-          <h2 class="text-lg font-bold text-white flex items-center gap-2 font-mono text-cyan-400">
-            // KEYLOOP_AI_PROJECTS_PORTFOLIO
-          </h2>
-          <p class="text-slate-400 text-xs md:text-sm mt-1">Click any project card below to launch the interactive deep-dive modal and architecture diagram.</p>
-        </div>
-        <span class="text-xs font-mono bg-cyan-950/80 text-cyan-300 border border-cyan-800 px-3 py-1 rounded-full mt-2 md:mt-0 self-start shadow-sm">Interactive UI ⚡</span>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-5">
-        
-        <!-- Project 1 Card -->
-        <div onclick="openModal('modal-1')" class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/80 p-6 rounded-2xl cursor-pointer transition transform hover:-translate-y-1 shadow-xl group relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition"></div>
-          <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider">GenAI Product Delivery</span>
-          <h3 class="text-xl font-bold text-white mt-1 group-hover:text-cyan-300 transition">AI Leads Assistant</h3>
-          <p class="text-slate-400 text-xs md:text-sm mt-2 line-clamp-2">Owned 0-to-1 product vision and backlog for an internal GenAI & LLM framework delivering contextual lead summaries and 3 scenario email templates[cite: 2].</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-cyan-400 font-semibold">
-            <span>Impact: 36%–40% Faster Response[cite: 2]</span>
-            <span class="bg-slate-800 px-3 py-1.5 rounded-lg group-hover:bg-cyan-500 group-hover:text-slate-950 transition">View Architecture ↗</span>
+          <div class="eyebrow">Product strategy · AI delivery · measurable outcomes</div>
+          <h1>Building AI products<br />that create real value.</h1>
+          <p class="hero-title">AI & Data Product Manager</p>
+          <p class="hero-copy">I work at the intersection of product strategy, AI/ML engineering, data, and business outcomes—taking enterprise AI capabilities from product vision and experimentation to embedded workflows and continuous improvement.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#projects">Explore project case studies <span aria-hidden="true">↘</span></a>
+            <a class="btn-secondary" href="mailto:siddhartha.p1610@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-
-        <!-- Project 2 Card -->
-        <div onclick="openModal('modal-2')" class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/80 p-6 rounded-2xl cursor-pointer transition transform hover:-translate-y-1 shadow-xl group relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition"></div>
-          <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider">Predictive ML & MLOps</span>
-          <h3 class="text-xl font-bold text-white mt-1 group-hover:text-cyan-300 transition">Customer Propensity & Next-Best-Action Engine</h3>
-          <p class="text-slate-400 text-xs md:text-sm mt-2 line-clamp-2">Evolved architecture from LLM prompt scoring to predictive ML and a hybrid LLM + ML model with MLOps and feature stores[cite: 2].</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-cyan-400 font-semibold">
-            <span>Impact: +14% Sales Conversions[cite: 2]</span>
-            <span class="bg-slate-800 px-3 py-1.5 rounded-lg group-hover:bg-cyan-500 group-hover:text-slate-950 transition">View Architecture ↗</span>
+        <aside class="hero-panel" aria-label="Selected product outcomes">
+          <div class="panel-label">Selected outcomes from my experience</div>
+          <div class="hero-metrics">
+            <div class="hero-metric"><strong>36–40%</strong><span>Faster sales-agent response times</span></div>
+            <div class="hero-metric"><strong>+14%</strong><span>Sales conversion lift from propensity recommendations</span></div>
+            <div class="hero-metric"><strong>+12%</strong><span>Dealership service-hub revenue</span></div>
+            <div class="hero-metric"><strong>4×</strong><span>Growth in active users on enterprise platforms</span></div>
           </div>
-        </div>
-
-        <!-- Project 3 Card -->
-        <div onclick="openModal('modal-3')" class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/80 p-6 rounded-2xl cursor-pointer transition transform hover:-translate-y-1 shadow-xl group relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition"></div>
-          <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider">Intelligent Service Operations</span>
-          <h3 class="text-xl font-bold text-white mt-1 group-hover:text-cyan-300 transition">Service Hub AI Optimizer</h3>
-          <p class="text-slate-400 text-xs md:text-sm mt-2 line-clamp-2">Replaced legacy heuristic scheduling with an ML optimizer using historical service data pipelines and brand prioritization logic[cite: 2].</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-cyan-400 font-semibold">
-            <span>Impact: +12% Service Revenue[cite: 2]</span>
-            <span class="bg-slate-800 px-3 py-1.5 rounded-lg group-hover:bg-cyan-500 group-hover:text-slate-950 transition">View Architecture ↗</span>
-          </div>
-        </div>
-
-        <!-- Project 4 Card -->
-        <div onclick="openModal('modal-4')" class="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/80 p-6 rounded-2xl cursor-pointer transition transform hover:-translate-y-1 shadow-xl group relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition"></div>
-          <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider">Sales Cycle Acceleration</span>
-          <h3 class="text-xl font-bold text-white mt-1 group-hover:text-cyan-300 transition">ML Quote Agent</h3>
-          <p class="text-slate-400 text-xs md:text-sm mt-2 line-clamp-2">Delivered an automated ML quotation agent recommending data-driven quote ranges based on brand, model, and make[cite: 2].</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-cyan-400 font-semibold">
-            <span>Impact: 2 Hours Saved per Quote[cite: 2]</span>
-            <span class="bg-slate-800 px-3 py-1.5 rounded-lg group-hover:bg-cyan-500 group-hover:text-slate-950 transition">View Architecture ↗</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Project 5 Full Width Card -->
-      <div onclick="openModal('modal-5')" class="mt-5 bg-slate-900/80 border border-slate-800 hover:border-cyan-500/80 p-6 rounded-2xl cursor-pointer transition transform hover:-translate-y-1 shadow-xl group relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 rounded-full blur-3xl group-hover:bg-cyan-500/10 transition"></div>
-        <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider">Governance, Evals & MLOps</span>
-        <h3 class="text-xl font-bold text-white mt-1 group-hover:text-cyan-300 transition">Responsible AI Governance & AI Evaluation Frameworks</h3>
-        <p class="text-slate-400 text-xs md:text-sm mt-2">Tracked portfolio KPIs and AI Evals while authoring Data Anonymization Policies, DPIAs, ML Policies, AI Guardrails, HITL, and XAI[cite: 2].</p>
-        <div class="mt-4 flex items-center justify-between text-xs text-cyan-400 font-semibold">
-          <span>Focus: Compliance, XAI & AI Observability[cite: 2]</span>
-          <span class="bg-slate-800 px-3 py-1.5 rounded-lg group-hover:bg-cyan-500 group-hover:text-slate-950 transition">View Architecture ↗</span>
-        </div>
+          <p class="metric-note">Outcomes and scope are drawn from the resume. Open a project to explore the context and conceptual workflow.</p>
+        </aside>
       </div>
     </section>
 
-    <!-- Enterprise Experience -->
-    <section>
-      <h2 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-mono text-cyan-400">
-        // ENTERPRISE_EXPERIENCE
-      </h2>
-      <div class="space-y-6">
-
-        <!-- Capgemini -->
-        <div class="bg-slate-900/80 border border-slate-800 p-7 rounded-2xl">
-          <div class="flex flex-col md:flex-row md:items-baseline justify-between">
-            <h3 class="text-lg font-bold text-white">Capgemini Technology Services Ltd. — Senior Consultant</h3>
-            <span class="text-cyan-400 text-xs font-mono font-semibold bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-800/60 mt-1 md:mt-0">Aug 2023 – Apr 2026[cite: 2]</span>
-          </div>
-          <p class="text-slate-400 text-xs mt-1">Product Management & Strategy Consulting</p>
-          
-          <div class="mt-5 space-y-3">
-            <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-wider font-mono">Product Manager – Enterprise Innovation Platforms (Rocket Station & Startup Catalyst)[cite: 2]</h4>
-            <ul class="space-y-2 text-slate-300 text-xs md:text-sm list-disc list-inside">
-              <li>Owned end-to-end product management for Rocket Station and Startup Catalyst platforms, Capgemini Ventures’ enterprise startup innovation ecosystem[cite: 2].</li>
-              <li>Drove 40% increase in startup tracking coverage and 30% improvement in intelligence sharing across 12+ business units through roadmap definition and stakeholder coordination[cite: 2].</li>
-              <li>Scaled platform adoption resulting in 4x growth in active users and 300% increase in feature adoption via QBRs, KPI analysis, and evangelization[cite: 2].</li>
-              <li>Managed vendor negotiations and SLAs, delivering 12+ upgrades with under 48-hour resolution timelines; implemented Power Automate workflows reducing manual effort by 60%[cite: 2].</li>
-              <li>Scoped AI/GenAI features including natural language search for improved content discoverability; translated requirements into BRDs, user stories, and API specs[cite: 2].</li>
-            </ul>
-
-            <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-wider pt-3 font-mono">Strategy Consulting & Market Intelligence – Cloud & Infrastructure Services[cite: 2]</h4>
-            <ul class="space-y-2 text-slate-300 text-xs md:text-sm list-disc list-inside">
-              <li>Developed competitive battle cards for 14 strategic accounts, benchmarking competitor capabilities to contribute to a 10% improvement in bid win rates[cite: 2].</li>
-              <li>Mapped customer pain points for a major Oil & Gas enterprise, unlocking €10Mn+ in qualified revenue opportunities[cite: 2].</li>
-              <li>Supported RFI responses, discovery workshops, and deal structuring for pursuits averaging €7Mn[cite: 2].</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Deloitte & TCS -->
-        <div class="grid md:grid-cols-2 gap-5">
-          <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl">
-            <div class="flex justify-between items-baseline">
-              <h3 class="font-bold text-white text-base">Deloitte USI</h3>
-              <span class="text-cyan-400 text-xs font-mono">Apr 2022 – Jun 2022[cite: 2]</span>
-            </div>
-            <p class="text-slate-400 text-xs mt-1">Enterprise Strategy Consulting Intern[cite: 2]</p>
-            <ul class="mt-3 space-y-2 text-slate-300 text-xs md:text-sm list-disc list-inside">
-              <li>Analyzed Reporting and Analytics blocks for ECON platform, benchmarking against SAP Signavio[cite: 2].</li>
-              <li>Designed data integration and segmented batch scheduling concepts to improve system reliability[cite: 2].</li>
-            </ul>
-          </div>
-
-          <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl">
-            <div class="flex justify-between items-baseline">
-              <h3 class="font-bold text-white text-base">Tata Consultancy Services</h3>
-              <span class="text-cyan-400 text-xs font-mono">Mar 2018 – Jun 2021[cite: 2]</span>
-            </div>
-            <p class="text-slate-400 text-xs mt-1">Systems Engineer | SAP BASIS Consultant[cite: 2]</p>
-            <ul class="mt-3 space-y-2 text-slate-300 text-xs md:text-sm list-disc list-inside">
-              <li>Supported SAP system migrations, cloud transformations (GCP), and S/4HANA integrations[cite: 2].</li>
-              <li>Conducted root cause analysis (RCA) via datalogs to achieve an 80% first-time resolution rate[cite: 2].</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Skills & Education -->
-    <section class="grid md:grid-cols-2 gap-6">
-      <div class="bg-slate-900/80 border border-slate-800 p-7 rounded-2xl">
-        <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 font-mono text-cyan-400">
-          // TECHNICAL_STACK
-        </h2>
-        <div class="space-y-3 text-xs md:text-sm text-slate-300">
-          <p><strong class="text-cyan-400">AI & LLMOps:</strong> Agentic AI, LLMs, Foundation Models (Claude, OpenAI), RAG, Prompt Engineering, Hybrid LLM + ML, Multi-Modal AI, NLP, AI Evals, MLOps, CI/CD for ML, Feature Stores, Data Pipelines, Model Drift, Responsible AI, XAI, HITL, DPIAs[cite: 2].</p>
-          <p><strong class="text-cyan-400">Product & Agile:</strong> 0-to-1 Roadmapping, PRDs, BRDs, Epics, User Stories, Acceptance Criteria, OKRs, SAFe® 6.0 Agile, Scrum, Jira, Sprint Planning, UAT, A/B Testing[cite: 2].</p>
-          <p><strong class="text-cyan-400">Data & Enterprise:</strong> Power BI, Advanced Excel, Power Automate, SAP S/4HANA, CRM, Bloomflow, Postman[cite: 2].</p>
-        </div>
-      </div>
-
-      <div class="bg-slate-900/80 border border-slate-800 p-7 rounded-2xl">
-        <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 font-mono text-cyan-400">
-          // EDUCATION_&_CREDENTIALS
-        </h2>
-        <div class="space-y-3 text-xs md:text-sm text-slate-300">
+    <section class="section" id="projects">
+      <div class="wrap">
+        <div class="section-head">
           <div>
-            <p class="font-semibold text-white">PGDM (Marketing & Operations)[cite: 2]</p>
-            <p class="text-slate-400">TAPMI Manipal (2021 – 2023)[cite: 2]</p>
+            <div class="section-kicker">Selected work</div>
+            <h2>Projects & product case studies</h2>
+            <p class="section-description">Select any project to open a detailed view with the business problem, product approach, outcome, and a step-by-step workflow diagram.</p>
           </div>
-          <div>
-            <p class="font-semibold text-white">B.Tech. Electronics & Communication Engineering[cite: 2]</p>
-            <p class="text-slate-400">MVGR College of Engineering (2013 – 2017)[cite: 2]</p>
+          <div class="project-count" id="projectCount" aria-live="polite">11 case studies</div>
+        </div>
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filter projects by type">
+            <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All projects</button>
+            <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">AI products</button>
+            <button class="filter-btn" type="button" data-filter="platform" aria-pressed="false">Platforms & automation</button>
+            <button class="filter-btn" type="button" data-filter="strategy" aria-pressed="false">Strategy & enterprise</button>
           </div>
-          <div class="pt-2 border-t border-slate-800">
-            <p class="font-semibold text-white">Certifications:[cite: 2]</p>
-            <p class="text-slate-400">SAFe® 6.0 POPM, Google AI Essentials, Google Project Management, Connected Manager[cite: 2].</p>
-          </div>
+          <label class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+            <input class="search-input" type="search" id="projectSearch" placeholder="Search projects or technologies…" aria-label="Search projects or technologies" />
+          </label>
+        </div>
+        <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section capabilities" id="capabilities">
+      <div class="wrap">
+        <div class="section-kicker">Product toolkit</div>
+        <h2>From product discovery to production learning</h2>
+        <p class="section-description">A combination of product leadership, AI/ML product delivery, enterprise platform experience, and business-focused measurement.</p>
+        <div class="capability-grid">
+          <article class="capability"><div class="capability-icon">01</div><h3>Product strategy & ownership</h3><p>Product vision, 0-to-1 roadmaps, backlog prioritization, requirements, stakeholder alignment, release plans and lifecycle management.</p></article>
+          <article class="capability"><div class="capability-icon">02</div><h3>AI/ML product delivery</h3><p>Agentic AI, LLM-powered workflows, hybrid LLM + predictive ML, AI evaluations, MLOps and model-performance trade-offs.</p></article>
+          <article class="capability"><div class="capability-icon">03</div><h3>Responsible AI & quality</h3><p>AI guardrails, Human-in-the-Loop, privacy policies, DPIAs, explainability, fairness and bias-mitigation practices.</p></article>
+          <article class="capability"><div class="capability-icon">04</div><h3>Business impact & adoption</h3><p>Experimentation, product KPIs, adoption analytics, workflow automation, go-to-market and commercial opportunity assessment.</p></article>
+        </div>
+        <div class="skills-wrap" aria-label="Selected skills">
+          <span class="skill">AI Product Strategy</span><span class="skill">Agentic AI Systems</span><span class="skill">Large Language Models</span><span class="skill">Foundation Models</span><span class="skill">RAG</span><span class="skill">Prompt Engineering</span><span class="skill">Context Engineering</span><span class="skill">LLM Evaluation</span><span class="skill">MLOps / LLMOps</span><span class="skill">A/B Testing</span><span class="skill">PRDs & User Stories</span><span class="skill">API Integration</span><span class="skill">Data Pipelines</span><span class="skill">Responsible AI</span><span class="skill">Go-to-Market Strategy</span><span class="skill">OKRs & KPIs</span>
         </div>
       </div>
     </section>
 
+    <section class="closing">
+      <div class="wrap closing-inner">
+        <div><h2>Interested in building useful, trustworthy AI products?</h2><p>Let’s connect on product strategy, AI adoption, enterprise platforms, or applied AI delivery.</p></div>
+        <a class="btn-primary" href="mailto:siddhartha.p1610@gmail.com">Contact Siddhartha <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-800 bg-slate-900/40 mt-20 py-8 text-center text-slate-500 text-xs font-mono">
-    <p>© 2026 Pindi Srinivasa Shanmukha Siddhartha. AI Product Management Portfolio.</p>
+  <footer>
+    <div class="wrap footer-inner"><span>© <span id="year"></span> Siddhartha Pindi · AI & Data Product Portfolio</span><span>Conceptual workflow diagrams are based on resume descriptions, not proprietary production architecture.</span></div>
   </footer>
 
-
-  <!-- ================= INTERACTIVE MODALS & POPUPS ================= -->
-
-  <!-- Modal 1: AI Leads Assistant -->
-  <div id="modal-1" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-slate-900 border border-slate-700 max-w-3xl w-full rounded-2xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
-      <button onclick="closeModal('modal-1')" class="absolute top-5 right-5 text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center font-bold">✕</button>
-      
-      <span class="text-xs font-mono text-cyan-400 uppercase font-semibold">Keyloop • GenAI Product Delivery</span>
-      <h3 class="text-2xl font-bold text-white mt-1">AI Leads Assistant</h3>
-      
-      <div class="mt-6 space-y-4 text-slate-300 text-sm">
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">Product Description & Execution:</h4>
-          <p>Owned 0-to-1 product vision, roadmap, and backlog from concept to production for an AI Leads Assistant built on an internal Gen AI & Large Language Models (LLM) orchestration framework. Delivered contextualized summaries of customer leads and enquiries, automated email drafting across 3 scenario-based templates, and an interactive AI Re-Write feature merging real-time agent inputs via prompt engineering[cite: 2].</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">Validation & Business Impact:</h4>
-          <p>Partnered with ML engineers and UX specialists during Iteration Planning to transform manual sales workflows into AI-assisted processes. Validated features through UAT and A/B testing while instituting AI Evals to track response quality, agent accuracy, and productivity—cutting average response times by 36%–40% across all dealership hubs[cite: 2].</p>
-        </div>
-      </div>
-
-      <div class="mt-6 pt-6 border-t border-slate-800">
-        <h4 class="font-semibold text-white mb-3 text-sm font-mono">// ARCHITECTURE_WORKFLOW</h4>
-        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 overflow-x-auto flex justify-center">
-          <div class="mermaid">
-            graph LR
-              A["Customer Lead & Enquiry"] --> B["Gen AI & LLM Orchestration"]
-              B --> C["Contextualized Summaries"]
-              B --> D["3 Scenario Email Templates"]
-              E["Real-Time Agent Inputs"] --> F["Prompt Engineering AI Re-Write"]
-              D --> F
-              F --> G["UAT, A/B Testing & AI Evals"]
-              G --> H["36%–40% Faster Response"]
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="modal" id="projectModal" hidden>
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalSubtitle" tabindex="-1">
+      <header class="modal-top">
+        <button class="modal-close" type="button" id="modalClose" aria-label="Close project details">×</button>
+        <div class="modal-kicker" id="modalKicker"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-subtitle" id="modalSubtitle"></p>
+        <div class="modal-tags" id="modalTags"></div>
+      </header>
+      <div class="modal-content" id="modalContent"></div>
+    </section>
   </div>
 
-  <!-- Modal 2: Propensity Engine -->
-  <div id="modal-2" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-slate-900 border border-slate-700 max-w-3xl w-full rounded-2xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
-      <button onclick="closeModal('modal-2')" class="absolute top-5 right-5 text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center font-bold">✕</button>
-      
-      <span class="text-xs font-mono text-cyan-400 uppercase font-semibold">Keyloop • Predictive ML & MLOps</span>
-      <h3 class="text-2xl font-bold text-white mt-1">Customer Propensity & Next-Best-Action Engine</h3>
-      
-      <div class="mt-6 space-y-4 text-slate-300 text-sm">
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">Product Description & Execution:</h4>
-          <p>Led multi-phase, experiment-to-scale product roadmap and requirements for an AI-powered Customer Purchase Propensity and Next-Best-Action Engine, evolving delivery from an LLM prompt scoring prototype to a predictive ML model and ultimately a hybrid LLM + ML architecture maximizing accuracy while optimizing cost and latency[cite: 2].</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">MLOps & Business Impact:</h4>
-          <p>Worked with Data Engineering and ML teams to build scalable data pipelines, feature stores, and an MLOps framework with CI/CD for ML, model versioning, and live production ingestion. Partnered with Data Scientists on A/B testing to deliver a 14% lift in sales conversions[cite: 2].</p>
-        </div>
-      </div>
-
-      <div class="mt-6 pt-6 border-t border-slate-800">
-        <h4 class="font-semibold text-white mb-3 text-sm font-mono">// ARCHITECTURE_WORKFLOW</h4>
-        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 overflow-x-auto flex justify-center">
-          <div class="mermaid">
-            graph TD
-              A["Multi-Modal Data & Interactions"] --> B["Data Pipelines & Feature Stores"]
-              B --> C["Phase 1: LLM Prompt Prototype"]
-              C --> D["Phase 2: Predictive ML Model"]
-              D --> E["Phase 3: Hybrid LLM + ML Architecture"]
-              F["MLOps Framework (CI/CD, Versioning)"] --> E
-              E --> G["Real-Time SaaS Recommendations"]
-              G --> H["+14% Sales Conversion Lift"]
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 3: Service Hub AI Optimizer -->
-  <div id="modal-3" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-slate-900 border border-slate-700 max-w-3xl w-full rounded-2xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
-      <button onclick="closeModal('modal-3')" class="absolute top-5 right-5 text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center font-bold">✕</button>
-      
-      <span class="text-xs font-mono text-cyan-400 uppercase font-semibold">Keyloop • Intelligent Service Operations</span>
-      <h3 class="text-2xl font-bold text-white mt-1">Service Hub AI Optimizer</h3>
-      
-      <div class="mt-6 space-y-4 text-slate-300 text-sm">
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">Product Description & Execution:</h4>
-          <p>Spearheaded heuristics-to-AI digital transformation of dealership Service Hub by replacing legacy rule-based scheduling with an ML-driven AI Optimizer using historical service data pipelines to predict per-vehicle service times and automate queue allocation[cite: 2].</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">Commercial Impact:</h4>
-          <p>Collaborated with stakeholders to embed profit-maximizing prioritization logic for select high-margin brands, balancing workshop utilization and customer experience to deliver a 12% increase in dealership service-hub revenue[cite: 2].</p>
-        </div>
-      </div>
-
-      <div class="mt-6 pt-6 border-t border-slate-800">
-        <h4 class="font-semibold text-white mb-3 text-sm font-mono">// ARCHITECTURE_WORKFLOW</h4>
-        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 overflow-x-auto flex justify-center">
-          <div class="mermaid">
-            graph LR
-              A["Legacy Heuristic Scheduling"] --> B["Historical Service Data Pipelines"]
-              B --> C["ML-Driven AI Optimizer: Service Duration & Queue Allocation"]
-              C --> D["High-Margin Brand Prioritization Logic"]
-              D --> E["+12% Service Hub Revenue"]
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 4: ML Quote Agent -->
-  <div id="modal-4" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-slate-900 border border-slate-700 max-w-3xl w-full rounded-2xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
-      <button onclick="closeModal('modal-4')" class="absolute top-5 right-5 text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center font-bold">✕</button>
-      
-      <span class="text-xs font-mono text-cyan-400 uppercase font-semibold">Keyloop • Sales Cycle Acceleration</span>
-      <h3 class="text-2xl font-bold text-white mt-1">ML Quote Agent</h3>
-      
-      <div class="mt-6 space-y-4 text-slate-300 text-sm">
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">Product Description & Execution:</h4>
-          <p>Identified critical workflow bottlenecks through user research and delivered an automated, ML-powered quotation agent that generates data-driven vehicle quote ranges based on brand, model, make, and accessories, replacing manual pricing calculations[cite: 2].</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">Engineering & Efficiency Impact:</h4>
-          <p>Aligned engineering team around clear Definitions of Done (DoD) standards for model accuracy and validated via sales agent UAT—cutting quote-to-sale turnaround time by 2 hours per transaction[cite: 2].</p>
-        </div>
-      </div>
-
-      <div class="mt-6 pt-6 border-t border-slate-800">
-        <h4 class="font-semibold text-white mb-3 text-sm font-mono">// ARCHITECTURE_WORKFLOW</h4>
-        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 overflow-x-auto flex justify-center">
-          <div class="mermaid">
-            graph LR
-              A["User Research & Discovery"] --> B["ML Quotation Agent (Brand, Model, Make)"]
-              B --> C["Data-Driven Quote Ranges"]
-              C --> D["DoD Standards & Sales UAT"]
-              D --> E["2 Hours Saved per Transaction"]
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 5: Responsible AI & Governance -->
-  <div id="modal-5" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-slate-900 border border-slate-700 max-w-3xl w-full rounded-2xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
-      <button onclick="closeModal('modal-5')" class="absolute top-5 right-5 text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center font-bold">✕</button>
-      
-      <span class="text-xs font-mono text-cyan-400 uppercase font-semibold">Keyloop • Governance & AI Evals</span>
-      <h3 class="text-2xl font-bold text-white mt-1">Responsible AI Governance & AI Evaluation Frameworks</h3>
-      
-      <div class="mt-6 space-y-4 text-slate-300 text-sm">
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">Product Description & Execution:</h4>
-          <p>Tracked portfolio KPIs and AI Evals (model performance, accuracy, latency, ROI) for continuous optimization, translating developer tools and MLOps workflows across Data Science and engineering teams into structured epics and release plans[cite: 2].</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-cyan-300 mb-1">Responsible AI & Privacy Compliance:</h4>
-          <p>Championed Responsible AI and privacy governance across all data products by authoring Data Anonymization Policies, DPIAs, and ML Policies alongside AI Guardrails, Human-in-the-Loop (HITL) workflows, and explainable AI (XAI) standards[cite: 2].</p>
-        </div>
-      </div>
-
-      <div class="mt-6 pt-6 border-t border-slate-800">
-        <h4 class="font-semibold text-white mb-3 text-sm font-mono">// ARCHITECTURE_WORKFLOW</h4>
-        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 overflow-x-auto flex justify-center">
-          <div class="mermaid">
-            graph TD
-              A["AI/ML Models & Pipelines"] --> B["AI Evals & KPI Monitoring"]
-              A --> C["Responsible AI Framework"]
-              B --> D["Backlog Prioritization & Iteration"]
-              C --> E["Data Anonymization, DPIAs, Guardrails, HITL & XAI"]
-              D & E --> F["Compliant Enterprise AI Delivery"]
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Script for Modal Handlers & Mermaid Auto-Render -->
   <script>
-    async function openModal(modalId) {
-      const modal = document.getElementById(modalId);
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden'; 
-
-      // Give the browser 50ms to draw the modal box before rendering Mermaid diagrams
-      setTimeout(async () => {
-        try {
-          await mermaid.run({
-            nodes: modal.querySelectorAll('.mermaid')
-          });
-        } catch (err) {
-          console.error("Mermaid rendering error:", err);
-        }
-      }, 50);
-    }
-
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      modal.classList.add('hidden');
-      document.body.style.overflow = 'auto'; 
-    }
-
-    window.onclick = function(event) {
-      if (event.target.classList.contains('fixed') && event.target.id.startsWith('modal-')) {
-        event.target.classList.add('hidden');
-        document.body.style.overflow = 'auto';
+    const projects = [
+      {
+        id: 'leads-assistant', category: 'ai', type: 'Generative AI · Sales Enablement', icon: 'AI', accent: '#0c9c91', iconBg: '#e2f8f4',
+        title: 'AI Leads Assistant',
+        summary: 'An embedded GenAI assistant that summarizes customer enquiries and helps sales agents draft and rewrite contextual email responses.',
+        metric: '36–40% faster responses',
+        subtitle: 'End-to-end GenAI product delivery for dealership sales workflows',
+        overview: 'Owned the 0-to-1 product vision, roadmap, and backlog for an AI Leads Assistant built on an internal GenAI and LLM orchestration framework. The capability turns incoming customer leads and enquiries into contextual summaries, suggests email drafts through three scenario-based templates, and supports agent-led rewriting with additional real-time input.',
+        challenge: 'Sales agents needed to review incoming enquiries, understand relevant context, and compose timely responses while preserving the ability to personalize each message.',
+        ownership: ['Owned product vision, roadmap, and backlog from concept to production.', 'Partnered with ML engineers and UX specialists through iteration planning.', 'Validated features through UAT and A/B testing; instituted AI evaluations for response quality, agent accuracy, productivity, and engagement.'],
+        approach: ['Create a contextual summary of a customer lead or enquiry.', 'Offer three scenario-based email draft formats.', 'Allow the agent to add context and rewrite the suggested email interactively.', 'Use evaluations, UAT, and experimentation to monitor quality and improve the workflow.'],
+        impacts: [{value:'36–40%',label:'Reduction in average response time'},{value:'3',label:'Scenario-based email templates'},{value:'UAT + A/B',label:'Feature validation approach'}],
+        tech: ['Generative AI','LLM orchestration','Prompt engineering','AI evaluations','UAT','A/B testing','Sales workflow automation'],
+        flow: [
+          {title:'Customer enquiry',detail:'A new lead or enquiry enters the dealership sales workflow.'},
+          {title:'Context assembly',detail:'Relevant lead details and additional agent input are brought into the drafting task.'},
+          {title:'LLM orchestration',detail:'The internal GenAI framework generates a contextual summary.'},
+          {title:'Email suggestions',detail:'Three scenario-based draft formats are presented to the agent.'},
+          {title:'Agent rewrite',detail:'The agent adds context and uses AI Re-Write to refine the response.'},
+          {title:'Evaluate & improve',detail:'UAT, A/B tests, and AI evals track quality and workflow outcomes.'}
+        ],
+        disclaimer: 'The diagram summarizes the product workflow described in the resume; it does not expose the internal model orchestration or production architecture.'
+      },
+      {
+        id: 'propensity-engine', category: 'ai', type: 'Predictive ML · Next-Best Action', icon: 'ML', accent: '#4676d8', iconBg: '#eaf0ff',
+        title: 'Customer Propensity & Next-Best-Action Engine',
+        summary: 'A hybrid LLM + predictive ML capability that turns customer interaction signals and preferences into sales recommendations.',
+        metric: '+14% sales conversions',
+        subtitle: 'Experiment-to-scale product roadmap for customer propensity and recommendations',
+        overview: 'Led the multi-phase roadmap and product requirements for an AI-powered Customer Purchase Propensity and Next-Best-Action Engine. The approach evolved from an LLM prompt-based scoring prototype to a predictive ML model and then a hybrid LLM + ML architecture, designed to use available data while balancing accuracy, cost, and latency.',
+        challenge: 'Sales agents needed decision support grounded in customer signals, preferences, and interaction history rather than relying only on manual judgment.',
+        ownership: ['Led product requirements and an experiment-to-scale roadmap.', 'Partnered with Data Scientists to compare approaches through A/B testing.', 'Worked with Data Engineering and ML teams on scalable pipelines, feature stores, CI/CD for ML, model versioning, and live data ingestion.'],
+        approach: ['Bring together available customer and sales-agent interaction data, sentiment, and stated preferences.', 'Prepare features through data pipelines and feature stores.', 'Evolve scoring from prompt-based experimentation to predictive ML and a hybrid LLM + ML approach.', 'Surface propensity and next-best-action recommendations to sales agents.', 'Use experiments and production feedback to improve model quality over time.'],
+        impacts: [{value:'+14%',label:'Lift in sales conversions'},{value:'Hybrid',label:'LLM + predictive ML architecture'},{value:'CI/CD',label:'ML delivery and model versioning'}],
+        tech: ['Predictive ML','LLMs','Feature stores','Data pipelines','MLOps','CI/CD for ML','Model versioning','A/B testing','Sentiment analysis'],
+        flow: [
+          {title:'Customer signals',detail:'Interaction history, stated preferences, and sentiment-related signals.'},
+          {title:'Data foundation',detail:'Data pipelines and feature stores prepare available inputs for modeling.'},
+          {title:'Model approach',detail:'Prompt-based scoring evolved to predictive ML and a hybrid LLM + ML approach.'},
+          {title:'Propensity & action',detail:'The product converts model outputs into sales-agent recommendations.'},
+          {title:'Agent decision',detail:'Agents use recommendations to guide customer engagement.'},
+          {title:'Experiment & learn',detail:'A/B tests and MLOps feedback support continuous quality improvement.'}
+        ],
+        disclaimer: 'The flow reflects the described progression and delivery practices. Specific model features, algorithms, and production data schemas are not disclosed.'
+      },
+      {
+        id: 'service-hub', category: 'ai', type: 'Predictive Analytics · Operations', icon: 'OPS', accent: '#a66b16', iconBg: '#fff3df',
+        title: 'Service Hub AI Optimizer',
+        summary: 'A shift from rule-based workshop scheduling to ML-driven service-time prediction and intelligent resource allocation.',
+        metric: '+12% service-hub revenue',
+        subtitle: 'Predictive service operations and intelligent workshop scheduling',
+        overview: 'Spearheaded the transition from legacy heuristic scheduling to a data-first ML-driven AI Optimizer. The product uses historical service data to predict per-vehicle service times and durations, then supports time, resource, and workshop-queue allocation with dealership-specific prioritization logic.',
+        challenge: 'Rule-based heuristics and experience-dependent estimates limited the ability to balance workshop capacity, service timing, profitability, and customer experience.',
+        ownership: ['Led the product transformation from heuristics to AI-driven optimization.', 'Partnered with domain product teams and stakeholders to define dealership-specific prioritization logic.', 'Balanced workshop utilization, profitability, and customer experience when shaping product decisions.'],
+        approach: ['Use historical service records to estimate service durations by vehicle.', 'Translate predictions into scheduling and resource-allocation recommendations.', 'Apply dealership-specific logic for selected high-margin, high-frequency vehicle brands.', 'Support operational decisions aimed at improving floor efficiency and utilization.'],
+        impacts: [{value:'+12%',label:'Increase in dealership service-hub revenue'},{value:'ML-driven',label:'Service-time prediction and scheduling'},{value:'Multi-factor',label:'Utilization, profitability, and customer experience'}],
+        tech: ['Predictive analytics','Machine learning','Historical service data','Scheduling optimization','Resource allocation','Operational KPIs'],
+        flow: [
+          {title:'Service history',detail:'Historical service data is used as the prediction input.'},
+          {title:'Duration prediction',detail:'ML estimates per-vehicle service times and durations.'},
+          {title:'Schedule planning',detail:'Predictions inform timing, resource, and workshop-queue allocation.'},
+          {title:'Business priorities',detail:'Dealership-specific rules balance selected brand priorities and profitability.'},
+          {title:'Workshop operations',detail:'Teams use the optimized schedule to guide operational decisions.'},
+          {title:'Measure outcomes',detail:'Utilization, service workflow, customer experience, and revenue inform decisions.'}
+        ],
+        disclaimer: 'This is a high-level product flow. It does not represent the proprietary scheduling algorithm or detailed optimization constraints.'
+      },
+      {
+        id: 'quote-agent', category: 'ai', type: 'Intelligent Automation · Pricing', icon: 'Q+', accent: '#7559c7', iconBg: '#f0ebff',
+        title: 'ML Quote Agent',
+        summary: 'An ML-powered quotation assistant that recommends vehicle quote ranges using vehicle and accessory details.',
+        metric: '2 hours saved per quote',
+        subtitle: 'Predictive pricing support and sales-cycle acceleration',
+        overview: 'Identified a workflow bottleneck and delivered an automated ML-powered quotation agent that generates and recommends data-driven vehicle quote ranges using brand, model, make, and accessories. It replaces experience-dependent manual pricing calculations with AI-assisted sales support.',
+        challenge: 'Manual quote calculations required time and paperwork, reducing the time sales agents could spend on customer engagement and closing high-value opportunities.',
+        ownership: ['Identified the workflow bottleneck through user research.', 'Aligned engineering around Definition of Done standards for model accuracy and production readiness.', 'Validated the agent through UAT with sales agents.'],
+        approach: ['Capture vehicle and accessory attributes relevant to a quote.', 'Generate a data-driven quote range for the agent to review.', 'Use sales-agent UAT and defined accuracy/readiness criteria to validate behavior.', 'Shift effort away from manual cost calculation toward customer conversations.'],
+        impacts: [{value:'2 hours',label:'Quote-to-sale turnaround time saved per quote / transaction'},{value:'Automated',label:'Manual vehicle quote calculations'},{value:'UAT',label:'Validation with sales agents'}],
+        tech: ['Machine learning','Predictive pricing','Workflow automation','Model accuracy','Definition of Done','UAT','Sales enablement'],
+        flow: [
+          {title:'Vehicle details',detail:'Brand, model, make, and accessory information is provided.'},
+          {title:'Quote prediction',detail:'The ML-powered agent generates a data-driven quote range.'},
+          {title:'Agent review',detail:'The sales agent reviews the recommendation in the sales workflow.'},
+          {title:'Quality validation',detail:'UAT and defined accuracy / readiness criteria validate behavior.'},
+          {title:'Customer discussion',detail:'The agent can spend more time on engagement and closing.'}
+        ],
+        disclaimer: 'The resume does not specify pricing model algorithms or source systems; the diagram shows the user-facing workflow at a conceptual level.'
+      },
+      {
+        id: 'responsible-ai', category: 'ai', type: 'Responsible AI · Evaluation · MLOps', icon: 'RAI', accent: '#0c8c86', iconBg: '#e3f8f5',
+        title: 'Responsible AI Governance & Evaluation Frameworks',
+        summary: 'Portfolio-level quality tracking and governance covering AI evaluations, privacy, explainability, guardrails, and human oversight.',
+        metric: 'Quality + governance controls',
+        subtitle: 'AI quality metrics, responsible delivery, and continuous optimization',
+        overview: 'Tracked portfolio KPIs and AI evaluation signals including model performance, agent accuracy, response quality, latency, adoption, and ROI. Translated developer tools, self-service ML, and MLOps workflows into roadmaps, epics, and release plans across Data Science, ML, Data Engineering, and business teams.',
+        challenge: 'AI products need consistent monitoring and responsible delivery practices as they move from experimentation into enterprise workflows and production use.',
+        ownership: ['Defined and tracked product-quality and adoption signals.', 'Championed data anonymization policies, DPIAs, and ML policies.', 'Embedded AI guardrails, Human-in-the-Loop (HITL), explainability, fairness, transparency, and bias mitigation into product delivery.'],
+        approach: ['Track product and model-level KPIs and evaluation signals.', 'Apply privacy policies, DPIAs, and data anonymization practices.', 'Use guardrails and human oversight where appropriate.', 'Consider explainability, fairness, transparency, and bias mitigation.', 'Translate evaluation and operational learnings into roadmaps and release plans.'],
+        impacts: [{value:'AI Evals',label:'Model performance, agent accuracy, and response quality'},{value:'HITL',label:'Human-in-the-Loop governance approach'},{value:'DPIAs',label:'Privacy impact assessment practices'},{value:'XAI',label:'Explainability and bias-mitigation focus'}],
+        tech: ['Responsible AI','AI evaluations','AI guardrails','Human-in-the-Loop','XAI','DPIAs','Data anonymization','MLOps','Latency & ROI tracking'],
+        flow: [
+          {title:'Product signals',detail:'Collect quality, accuracy, response, latency, adoption, and ROI signals.'},
+          {title:'Privacy policies',detail:'Apply data anonymization policies, DPIAs, and ML policies.'},
+          {title:'Guardrails & HITL',detail:'Use guardrails and human oversight to support responsible workflows.'},
+          {title:'Explainability',detail:'Consider transparency, fairness, model explainability, and bias mitigation.'},
+          {title:'Monitor & evaluate',detail:'Review model performance and product KPIs as the system evolves.'},
+          {title:'Roadmap updates',detail:'Turn findings into epics, release plans, and ongoing optimization.'}
+        ],
+        disclaimer: 'This case study describes the governance and evaluation practices listed in the resume; it is not a legal or compliance certification claim.'
+      },
+      {
+        id: 'innovation-platforms', category: 'platform', type: 'Enterprise Product · Innovation Platforms', icon: 'IP', accent: '#4776d2', iconBg: '#eaf0ff',
+        title: 'Rocket Station & Startup Catalyst',
+        summary: 'Enterprise innovation platforms supporting startup tracking, intelligence sharing, product enhancements, and business-unit adoption.',
+        metric: '4× active-user growth',
+        subtitle: 'Product management for Capgemini Ventures’ startup innovation ecosystem',
+        overview: 'Owned end-to-end product management for Rocket Station and Startup Catalyst, Capgemini Ventures’ enterprise-wide startup innovation ecosystem. Led platform enhancements, defined roadmap and feature priorities, coordinated business stakeholders, and supported adoption through quarterly business reviews, KPI analysis, and targeted enablement.',
+        challenge: 'Startup and innovation intelligence needed to be tracked and shared more consistently across business units, with product changes aligned to stakeholder needs and platform adoption.',
+        ownership: ['Owned product vision, roadmap, feature priorities, scope, and delivery coordination.', 'Managed stakeholders, vendors, platform upgrades, SLAs, and budgets.', 'Used QBRs, KPI analysis, and targeted evangelization to scale adoption.', 'Translated requirements into BRDs, user stories, API integration requirements, and UAT plans.'],
+        approach: ['Coordinate startup and innovation-tracking workflows on enterprise platforms.', 'Make portfolio intelligence easier to share across business units.', 'Prioritize enhancements based on stakeholder needs and product KPIs.', 'Use QBRs and enablement sessions to increase usage and improve adoption.', 'Manage upgrades and issue resolution with vendors and technical teams.'],
+        impacts: [{value:'4×',label:'Growth in active users'},{value:'+300%',label:'Increase in feature adoption'},{value:'+40%',label:'Startup tracking coverage'},{value:'+30%',label:'Intelligence sharing across 12+ business units'}],
+        tech: ['Enterprise SaaS','Product roadmaps','BRDs / user stories','API integration requirements','UAT','KPI analysis','Vendor management','Stakeholder enablement'],
+        flow: [
+          {title:'Startup ecosystem',detail:'Capture startup and innovation information across the ecosystem.'},
+          {title:'Tracking platform',detail:'Use platform workflows to organize startup tracking and intelligence.'},
+          {title:'Share intelligence',detail:'Improve availability of insights across business units.'},
+          {title:'Review adoption',detail:'QBRs, KPIs, demos, and enablement inform usage and prioritization.'},
+          {title:'Prioritize changes',detail:'Roadmaps and feature priorities respond to stakeholder needs.'},
+          {title:'Release & support',detail:'Coordinate enhancements, upgrades, vendors, SLAs, and UAT.'}
+        ],
+        disclaimer: 'The workflow combines the two enterprise platforms as described in the resume; internal platform implementation details are intentionally omitted.'
+      },
+      {
+        id: 'natural-language-search', category: 'platform', type: 'AI Feature Scoping · Knowledge Discovery', icon: 'NL', accent: '#0e938d', iconBg: '#e3f8f5',
+        title: 'AI-Powered Natural Language Search',
+        summary: 'A scoped GenAI/AI capability intended to improve discoverability and user experience across an enterprise innovation portfolio.',
+        metric: 'Improved content discovery focus',
+        subtitle: 'Natural-language discovery for enterprise innovation knowledge',
+        overview: 'Drove AI and GenAI feature scoping for an AI-powered natural-language search capability across the innovation portfolio. The intended product outcome was to make relevant content easier to discover and improve the user experience of a centralized knowledge hub and innovation repository.',
+        challenge: 'Users of enterprise innovation repositories need a straightforward way to discover relevant portfolio content without depending entirely on rigid navigation or exact terminology.',
+        ownership: ['Scoped the AI/GenAI feature around discoverability and user experience.', 'Connected the capability to the broader enterprise innovation-platform proposition.', 'Supported product positioning as a centralized knowledge hub and innovation repository.'],
+        approach: ['User expresses an information need in natural language.', 'Search capability interprets the query and looks for relevant innovation-portfolio content.', 'Relevant content is surfaced for the user to inspect.', 'User discovery and feedback inform future product refinement.'],
+        impacts: [{value:'AI / GenAI',label:'Feature-scoping focus'},{value:'Knowledge hub',label:'Enterprise innovation repository context'},{value:'Discoverability',label:'Primary user experience goal'}],
+        tech: ['AI feature scoping','Generative AI','Natural-language search','Knowledge discovery','Enterprise platforms','Product discovery'],
+        flow: [
+          {title:'User question',detail:'A user describes the information they need in natural language.'},
+          {title:'Query interpretation',detail:'The search capability processes the user’s expressed intent.'},
+          {title:'Content discovery',detail:'Relevant innovation-portfolio content is identified by the search experience.'},
+          {title:'Results presented',detail:'The user reviews the content surfaced by the knowledge hub.'},
+          {title:'Refine experience',detail:'Product feedback can inform future discovery improvements.'}
+        ],
+        disclaimer: 'The resume describes feature scoping, not a confirmed search architecture. Retrieval, ranking, and indexing implementation details are therefore not asserted here.'
+      },
+      {
+        id: 'power-automate', category: 'platform', type: 'Workflow Automation · Operations', icon: '⚙', accent: '#4776d2', iconBg: '#eaf0ff',
+        title: 'Power Automate Workflow Automation',
+        summary: 'Automated data capture, reporting, and notification processes to reduce manual operational effort.',
+        metric: '60% less manual effort',
+        subtitle: 'Operational process automation across enterprise platforms',
+        overview: 'Designed and implemented Microsoft Power Automate workflows to streamline data capture, reporting, and notifications. The work automated more than five operational processes and reduced associated manual effort by 60%.',
+        challenge: 'Repeated data capture, report preparation, and notification tasks created avoidable manual work and operational overhead.',
+        ownership: ['Designed and implemented Power Automate workflows.', 'Targeted process steps involving data capture, reporting, and notifications.', 'Connected automation outcomes to operational efficiency and reduced manual effort.'],
+        approach: ['Identify repeatable manual process steps.', 'Define workflow triggers, data capture, and handoffs.', 'Automate reporting and notification steps.', 'Use the resulting workflows to standardize recurring operations.'],
+        impacts: [{value:'60%',label:'Reduction in manual effort'},{value:'5+',label:'Operational processes automated'},{value:'Power Automate',label:'Workflow automation platform'}],
+        tech: ['Microsoft Power Automate','Workflow automation','Data capture','Reporting','Notifications','Process improvement'],
+        flow: [
+          {title:'Manual task',detail:'A recurring data-capture, reporting, or notification task is identified.'},
+          {title:'Workflow trigger',detail:'A defined trigger starts the automation flow.'},
+          {title:'Automated steps',detail:'The flow executes the configured data and process actions.'},
+          {title:'Report / notify',detail:'Outputs and notifications are routed to the relevant users or process.'},
+          {title:'Operational benefit',detail:'Teams spend less time on repetitive manual work.'}
+        ],
+        disclaimer: 'The diagram is a generic representation of the workflows described in the resume; it does not imply any specific connector or system integration.'
+      },
+      {
+        id: 'market-intelligence', category: 'strategy', type: 'Strategy Consulting · Market Intelligence', icon: 'STR', accent: '#a66b16', iconBg: '#fff3df',
+        title: 'Enterprise Strategy & Market Intelligence',
+        summary: 'Account intelligence, competitor battle cards, customer pain-point mapping, and pursuit strategy for enterprise opportunities.',
+        metric: '€10M+ qualified opportunities',
+        subtitle: 'Cloud & Infrastructure Services strategy and sales enablement at Capgemini',
+        overview: 'Developed account intelligence and competitive battle cards for 14 strategic enterprise accounts, combining competitor benchmarking, market research, primary interviews, and analysis of Gartner, Forrester, Avasant, 10-K filings, and annual reports. Mapped customer pain points to service offerings and supported RFI responses, discovery workshops, win labs, and deal structuring.',
+        challenge: 'Enterprise pursuit teams needed actionable competitor positioning and account-level insights to identify customer needs, shape service propositions, and improve sales opportunities.',
+        ownership: ['Created competitive battle cards and attack-and-defense positioning.', 'Translated research into actionable insights for leadership and pursuit teams.', 'Mapped client pain points to service capabilities and supported account planning, RFI responses, and deal structuring.'],
+        approach: ['Collect public market, competitor, account, and financial information.', 'Validate market hypotheses through primary and secondary research.', 'Benchmark competitor strengths and weaknesses against service capabilities.', 'Convert evidence into battle cards, customer pain-point maps, and pursuit recommendations.', 'Align recommendations with RFI, win-lab, and deal timelines.'],
+        impacts: [{value:'14',label:'Strategic enterprise accounts covered'},{value:'+10%',label:'Improvement in bid win rates'},{value:'€10M+',label:'Qualified revenue opportunities identified'},{value:'€7M',label:'Average deal size for supported pursuits'}],
+        tech: ['Market research','Competitive intelligence','Account strategy','Gartner / Forrester / Avasant','Customer discovery','RFI responses','GTM / deal structuring'],
+        flow: [
+          {title:'Research sources',detail:'Market reports, filings, annual reports, and primary research.'},
+          {title:'Validate hypotheses',detail:'Assess customer needs, account context, and competitor positions.'},
+          {title:'Build intelligence',detail:'Create account intelligence and competitive battle cards.'},
+          {title:'Map client needs',detail:'Connect customer pain points with service capabilities.'},
+          {title:'Shape the pursuit',detail:'Support RFI responses, discovery workshops, win labs, and deal structuring.'},
+          {title:'Commercial outcomes',detail:'Help identify opportunities and improve pursuit positioning.'}
+        ],
+        disclaimer: 'Business metrics reflect the outcomes described in the resume and indicate contribution, not sole attribution.'
+      },
+      {
+        id: 'deloitte-econ', category: 'strategy', type: 'Enterprise Strategy · Process Intelligence', icon: 'EC', accent: '#7559c7', iconBg: '#f0ebff',
+        title: 'Deloitte ECON Process Intelligence Assessment',
+        summary: 'Strategy and analysis work covering reporting, analytics, process performance, benchmarking, data integration, and scheduling concepts.',
+        metric: 'Transformation recommendations',
+        subtitle: 'Enterprise strategy consulting internship at Deloitte USI',
+        overview: 'Analyzed improvement opportunities across reporting, analytics, and process performance blocks for the ECON platform. Benchmarked ECON against SAP Signavio and developed short- and long-term recommendations to enhance supply-chain visibility and customer experience.',
+        challenge: 'The platform assessment required a structured view of reporting and process-performance improvement opportunities, along with practical concepts for integration and scheduling.',
+        ownership: ['Analyzed reporting, analytics, and process-performance areas.', 'Benchmarked platform capabilities against SAP Signavio.', 'Designed data-integration and segmented batch-scheduling concepts and aligned recommendations with broader business objectives.'],
+        approach: ['Review process-performance and reporting needs.', 'Benchmark capability and user experience against SAP Signavio.', 'Explore data-integration options and batch scheduling approaches.', 'Compare segmented scheduling concepts with fully automated scheduling.', 'Develop short- and long-term recommendations for visibility and experience.'],
+        impacts: [{value:'Benchmarking',label:'ECON compared with SAP Signavio'},{value:'Data integration',label:'Integration concepts explored'},{value:'Scheduling',label:'Segmented scheduling recommendations'}],
+        tech: ['Enterprise strategy','Process intelligence','SAP Signavio benchmarking','Data integration','Batch scheduling','System reliability','Supply-chain visibility'],
+        flow: [
+          {title:'Assess ECON',detail:'Review reporting, analytics, and process-performance blocks.'},
+          {title:'Benchmark',detail:'Compare relevant platform capabilities against SAP Signavio.'},
+          {title:'Explore design',detail:'Develop data-integration and scheduling concepts.'},
+          {title:'Evaluate trade-offs',detail:'Compare segmented scheduling with fully automated approaches.'},
+          {title:'Recommend',detail:'Provide short- and long-term recommendations for visibility and experience.'}
+        ],
+        disclaimer: 'The resume describes analysis and recommendations rather than a confirmed production implementation; the workflow is presented as an assessment process.'
+      },
+      {
+        id: 'sap-basis', category: 'strategy', type: 'Enterprise Systems · Cloud-Aligned Transformation', icon: 'SAP', accent: '#4776d2', iconBg: '#eaf0ff',
+        title: 'SAP BASIS Operations & Cloud-Aligned Transformation',
+        summary: 'SAP migrations, upgrades, landscape administration, incident resolution, and CRM / S/4HANA integration support.',
+        metric: '80% first-time resolution',
+        subtitle: 'Enterprise systems engineering and operational reliability at TCS',
+        overview: 'Supported SAP system migrations and upgrades, including cloud-aligned transformation work with GCP exposure. Managed SAP landscape administration and operations, supported CRM and S/4HANA integrations, coordinated incident resolution, and performed root-cause analysis using data logs and SAP Notes.',
+        challenge: 'Enterprise SAP environments require stable operations, controlled upgrades, reliable integrations, and timely incident resolution to protect service continuity.',
+        ownership: ['Supported migrations, upgrades, and SAP landscape administration.', 'Acted as shift lead and primary coordination point for cross-functional incident handling.', 'Performed root-cause analysis, applied SAP Notes, and supported CRM / S/4HANA integrations.'],
+        approach: ['Support planned SAP migrations, upgrades, and operations.', 'Monitor incidents and coordinate resolution within SLA timelines.', 'Use logs and SAP Notes for root-cause analysis.', 'Support enterprise integration and system availability.', 'Improve first-time resolution through structured troubleshooting.'],
+        impacts: [{value:'80%',label:'First-time incident resolution rate'},{value:'SLA-led',label:'Incident coordination and resolution'},{value:'GCP exposure',label:'Cloud-aligned transformation context'}],
+        tech: ['SAP BASIS','SAP S/4HANA','CRM integration','System migration','System upgrades','Root-cause analysis','SAP Notes','GCP exposure','SLA management'],
+        flow: [
+          {title:'SAP landscape',detail:'Operate and support the enterprise SAP environment.'},
+          {title:'Change / incident',detail:'Handle upgrades, migrations, operations, and incidents.'},
+          {title:'Diagnose',detail:'Use logs and SAP Notes for root-cause analysis.'},
+          {title:'Resolve & integrate',detail:'Coordinate fixes and support CRM / S/4HANA integrations.'},
+          {title:'Validate operations',detail:'Track stability, availability, SLAs, and resolution outcomes.'}
+        ],
+        disclaimer: 'GCP is listed as exposure to cloud-aligned transformation in the resume; this case study does not imply ownership of a specific cloud architecture.'
       }
-    }
-  </script>
+    ];
 
+    const grid = document.getElementById('projectGrid');
+    const searchInput = document.getElementById('projectSearch');
+    const countLabel = document.getElementById('projectCount');
+    const filterButtons = [...document.querySelectorAll('[data-filter]')];
+    const modal = document.getElementById('projectModal');
+    const modalPanel = modal.querySelector('.modal-panel');
+    const closeBtn = document.getElementById('modalClose');
+    let activeFilter = 'all';
+    let previouslyFocused = null;
+
+    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+
+    function renderCards() {
+      const query = searchInput.value.trim().toLowerCase();
+      const filtered = projects.filter(project => {
+        const matchesCategory = activeFilter === 'all' || project.category === activeFilter;
+        const searchable = [project.title, project.type, project.subtitle, project.summary, ...project.tech].join(' ').toLowerCase();
+        return matchesCategory && (!query || searchable.includes(query));
+      });
+      countLabel.textContent = `${filtered.length} ${filtered.length === 1 ? 'case study' : 'case studies'}`;
+      if (!filtered.length) {
+        grid.innerHTML = '<div class="no-results">No matching projects. Try another search term or select “All projects”.</div>';
+        return;
+      }
+      grid.innerHTML = filtered.map((project, index) => `
+        <button type="button" class="project-card" data-project="${escapeHtml(project.id)}" aria-haspopup="dialog" aria-label="Open case study: ${escapeHtml(project.title)}" style="--accent:${project.accent};--icon-bg:${project.iconBg};animation-delay:${Math.min(index * 45, 270)}ms">
+          <span class="card-header"><span class="project-icon">${escapeHtml(project.icon)}</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+          <span class="project-type">${escapeHtml(project.type)}</span>
+          <span class="project-title" role="heading" aria-level="3">${escapeHtml(project.title)}</span>
+          <span class="project-summary">${escapeHtml(project.summary)}</span>
+          <span class="card-bottom"><span class="metric-pill">${escapeHtml(project.metric)}</span><span class="open-label">OPEN CASE ↗</span></span>
+        </button>`).join('');
+      grid.querySelectorAll('[data-project]').forEach(card => card.addEventListener('click', () => openProject(card.dataset.project)));
+    }
+
+    function detailCard(title, body, isList = false) {
+      const content = isList
+        ? `<ul>${body.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
+        : `<p>${escapeHtml(body)}</p>`;
+      return `<section class="detail-card"><h3>${escapeHtml(title)}</h3>${content}</section>`;
+    }
+
+    function openProject(id) {
+      const project = projects.find(item => item.id === id);
+      if (!project) return;
+      previouslyFocused = document.activeElement;
+      document.getElementById('modalKicker').textContent = project.type;
+      document.getElementById('modalTitle').textContent = project.title;
+      document.getElementById('modalSubtitle').textContent = project.subtitle;
+      document.getElementById('modalTags').innerHTML = project.tech.slice(0, 8).map(tag => `<span class="modal-tag">${escapeHtml(tag)}</span>`).join('');
+
+      const impacts = project.impacts.map(item => `<div class="impact-card"><div class="impact-value">${escapeHtml(item.value)}</div><div class="impact-label">${escapeHtml(item.label)}</div></div>`).join('');
+      const flow = project.flow.map((step, index) => `${index ? '<div class="flow-arrow" aria-hidden="true">→</div>' : ''}<div class="flow-node"><span class="flow-number">${String(index + 1).padStart(2,'0')}</span><strong>${escapeHtml(step.title)}</strong><span>${escapeHtml(step.detail)}</span></div>`).join('');
+      const workflowSection = project.id === 'responsible-ai' ? '' : `
+        <section class="workflow-card" aria-label="Conceptual project workflow">
+          <div class="workflow-heading"><div><h3>How the product works</h3><p>A high-level flow from input or business need to action and continuous improvement.</p></div><span class="workflow-note">Conceptual workflow</span></div>
+          <div class="flow-scroll" tabindex="0" aria-label="Scrollable workflow diagram"><div class="flowchart">${flow}</div></div>
+        </section>`;
+      const content = `
+        <div class="impact-grid" aria-label="Project outcomes">${impacts}</div>
+        <div class="detail-grid">
+          ${detailCard('Business problem', project.challenge)}
+          ${detailCard('Product overview', project.overview)}
+          ${detailCard('Product ownership', project.ownership, true)}
+          ${detailCard('Product approach', project.approach, true)}
+        </div>
+        ${workflowSection}
+        <div class="bottom-detail-grid">
+          <section class="detail-card"><h3>Technology & methods</h3><div class="tech-list">${project.tech.map(tag => `<span class="tech-pill">${escapeHtml(tag)}</span>`).join('')}</div></section>
+          <section class="detail-card"><h3>Outcome & context</h3><p>${escapeHtml(project.impacts.map(item => `${item.value} — ${item.label}`).join('; '))}</p></section>
+        </div>
+        <p class="modal-disclaimer">${escapeHtml(project.disclaimer)} Metrics and responsibilities are summarized from the resume. Workflow diagrams are explanatory interpretations, not confidential system designs.</p>`;
+      document.getElementById('modalContent').innerHTML = content;
+      modal.hidden = false;
+      document.body.classList.add('modal-open');
+      requestAnimationFrame(() => {
+        modal.classList.add('is-open');
+        closeBtn.focus();
+      });
+    }
+
+    function closeModal() {
+      if (modal.hidden) return;
+      modal.classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+      window.setTimeout(() => {
+        modal.hidden = true;
+        if (previouslyFocused && typeof previouslyFocused.focus === 'function') previouslyFocused.focus();
+      }, 240);
+    }
+
+    filterButtons.forEach(button => button.addEventListener('click', () => {
+      activeFilter = button.dataset.filter;
+      filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      renderCards();
+    }));
+    searchInput.addEventListener('input', renderCards);
+    closeBtn.addEventListener('click', closeModal);
+    modal.querySelectorAll('[data-close-modal="true"]').forEach(el => el.addEventListener('click', closeModal));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !modal.hidden) closeModal();
+      if (event.key === 'Tab' && !modal.hidden) {
+        const focusable = [...modalPanel.querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])')].filter(el => !el.disabled);
+        if (!focusable.length) return;
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderCards();
+  </script>
 </body>
 </html>
