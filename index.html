@@ -45,9 +45,12 @@
     .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 
     .topbar {
+      position: sticky; top: 0; z-index: 60;
       color: #e8eef7;
-      background: rgba(16, 27, 45, .98);
+      background: rgba(16, 27, 45, .94);
       border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 8px 28px rgba(8,18,31,.12);
     }
     .topbar-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 760; letter-spacing: -.025em; }
@@ -60,15 +63,19 @@
     .nav { display: flex; align-items: center; gap: 24px; font-size: 13px; color: #cad5e3; }
     .nav a { text-decoration: none; transition: color .18s ease; }
     .nav a:hover { color: white; }
-    .nav .contact-link { padding: 9px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; }
+    .nav .contact-link { padding: 9px 14px; border: 1px solid rgba(125,228,216,.48); border-radius: 999px; color: #aaf0e8; background: rgba(20,184,166,.08); font-weight: 750; }
+    .nav button.contact-link { font: inherit; cursor: pointer; }
+    .nav .contact-link:hover { background: rgba(20,184,166,.16); border-color: rgba(125,228,216,.8); }
 
     .hero {
       position: relative; overflow: hidden; color: white;
-      background: radial-gradient(circle at 87% 18%, rgba(20,184,166,.20), transparent 26%),
-                  radial-gradient(circle at 70% 95%, rgba(71,123,224,.18), transparent 32%),
-                  linear-gradient(120deg, #101b2d 0%, #142942 72%, #173b4c 100%);
-      padding: 70px 0 62px;
+      background: radial-gradient(circle at 87% 18%, rgba(20,184,166,.24), transparent 26%),
+                  radial-gradient(circle at 70% 95%, rgba(71,123,224,.22), transparent 32%),
+                  linear-gradient(120deg, #0b1423 0%, #142942 65%, #174451 100%);
+      padding: 77px 0 70px;
+      isolation: isolate;
     }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .16; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(90deg, black, transparent 85%); }
     .hero::after {
       content: ""; position: absolute; right: -85px; top: -115px; width: 390px; height: 390px; border-radius: 50%;
       border: 1px solid rgba(255,255,255,.08); box-shadow: 0 0 0 32px rgba(255,255,255,.018), 0 0 0 70px rgba(255,255,255,.012); pointer-events: none;
@@ -76,7 +83,8 @@
     .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .75fr); align-items: center; gap: 58px; }
     .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #9ce8df; letter-spacing: .14em; text-transform: uppercase; font-size: 11px; font-weight: 800; }
     .eyebrow::before { content: ""; height: 2px; width: 25px; background: var(--teal); border-radius: 2px; }
-    h1 { margin: 15px 0 8px; font-size: clamp(38px, 5.2vw, 62px); line-height: 1.04; letter-spacing: -.055em; font-weight: 790; }
+    h1 { margin: 15px 0 8px; font-size: clamp(40px, 5.4vw, 68px); line-height: 1.02; letter-spacing: -.06em; font-weight: 820; text-wrap: balance; }
+    .hero-copy { text-wrap: pretty; }
     .hero-title { color: #bcd0e8; font-size: clamp(17px, 2vw, 22px); font-weight: 550; letter-spacing: -.025em; margin: 0 0 19px; }
     .hero-copy { max-width: 670px; color: #c8d4e2; font-size: 15px; line-height: 1.8; margin: 0; }
     .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
@@ -114,11 +122,14 @@
     .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 17px; }
     .project-card {
       display: flex; flex-direction: column; text-align: left; color: inherit; min-width: 0; width: 100%;
-      padding: 21px; border: 1px solid #e0e7ef; border-radius: var(--radius); background: var(--surface); box-shadow: 0 4px 14px rgba(17,32,52,.025);
-      position: relative; overflow: hidden; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; animation: card-in .45s both;
+      padding: 22px; border: 1px solid #e0e7ef; border-radius: 20px; background: linear-gradient(155deg, #fff 0%, #fff 68%, #f7fbfc 100%); box-shadow: 0 7px 20px rgba(17,32,52,.035);
+      position: relative; overflow: hidden; transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease; animation: card-in .45s both;
     }
+    .project-card::after { content: ""; position: absolute; width: 130px; height: 130px; border-radius: 50%; right: -76px; top: -76px; background: var(--icon-bg, var(--teal-soft)); opacity: .6; transition: transform .3s ease; pointer-events: none; }
+    .project-card > * { position: relative; z-index: 1; }
     .project-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--accent, var(--teal)); transform: scaleY(0); transform-origin: bottom; transition: transform .25s ease; }
-    .project-card:hover, .project-card:focus-visible { transform: translateY(-5px); border-color: #b9d7d8; box-shadow: var(--shadow); outline: none; }
+    .project-card:hover, .project-card:focus-visible { transform: translateY(-7px); border-color: #a9d4d2; box-shadow: 0 22px 50px rgba(17,32,52,.12); outline: none; }
+    .project-card:hover::after { transform: scale(1.35); }
     .project-card:hover::before, .project-card:focus-visible::before { transform: scaleY(1); }
     .project-card:focus-visible { box-shadow: 0 0 0 3px rgba(20,184,166,.24), var(--shadow); }
     .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
@@ -135,7 +146,9 @@
 
     .capabilities { background: white; border-top: 1px solid #e8edf3; border-bottom: 1px solid #e8edf3; }
     .capability-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; margin-top: 24px; }
-    .capability { padding: 18px; border: 1px solid #e5ebf2; border-radius: 14px; background: linear-gradient(150deg, #fff, #fbfcfe); }
+    .capability { padding: 21px; border: 1px solid #e3eaf1; border-radius: 17px; background: linear-gradient(150deg, #fff, #f9fbfd); box-shadow: 0 8px 22px rgba(17,32,52,.035); transition: transform .22s ease, box-shadow .22s ease; position: relative; overflow: hidden; }
+    .capability::after { content: ""; position: absolute; height: 3px; left: 0; top: 0; right: 0; background: linear-gradient(90deg, var(--teal), #6486ed); opacity: .7; }
+    .capability:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(17,32,52,.08); }
     .capability-icon { display: grid; place-items: center; color: var(--teal-dark); background: var(--teal-soft); border-radius: 10px; width: 36px; height: 36px; font-size: 15px; font-weight: 900; margin-bottom: 13px; }
     .capability h3 { font-size: 13px; margin: 0 0 5px; letter-spacing: -.01em; }
     .capability p { font-size: 11px; color: var(--muted); margin: 0; line-height: 1.65; }
@@ -194,11 +207,77 @@
     .tech-pill { color: #435b72; background: #f1f5f9; border: 1px solid #e1e8f0; border-radius: 7px; padding: 6px 8px; font-size: 10px; font-weight: 650; }
     .modal-disclaimer { color: #77879a; font-size: 10px; line-height: 1.6; margin: 18px 0 0; }
 
+    /* Credentials and expertise sections */
+    .credentials-section { background: radial-gradient(circle at 5% 10%, rgba(20,184,166,.055), transparent 25%), linear-gradient(180deg, #f4f7fb, #f7f9fc); }
+    .credentials-layout { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(310px,.85fr); gap: 18px; align-items: stretch; margin-top: 27px; }
+    .credential-panel { border: 1px solid #e0e8f0; border-radius: 22px; background: rgba(255,255,255,.9); box-shadow: 0 12px 34px rgba(17,32,52,.05); overflow: hidden; }
+    .credential-panel-head { padding: 22px 24px 18px; border-bottom: 1px solid #edf1f5; background: linear-gradient(120deg, #fff, #f7fbfc); }
+    .credential-overline { display: flex; align-items: center; gap: 8px; color: #0b887f; font-size: 10px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .credential-overline::before { content: ""; width: 20px; height: 2px; background: #14b8a6; border-radius: 2px; }
+    .credential-panel-head h3 { color: #142338; font-size: 20px; letter-spacing: -.035em; line-height: 1.2; margin: 8px 0 5px; }
+    .credential-panel-head p { color: #6a7b8e; font-size: 12px; line-height: 1.65; margin: 0; }
+    .competency-groups { padding: 8px 23px 22px; }
+    .competency-group { padding: 15px 0 14px; }
+    .competency-group + .competency-group { border-top: 1px solid #edf1f5; }
+    .competency-group h4 { margin: 0 0 10px; color: #263c53; font-size: 12px; font-weight: 820; display: flex; align-items: center; gap: 8px; }
+    .competency-group h4 span { display: grid; place-items: center; width: 25px; height: 25px; border-radius: 8px; background: #e5f8f4; color: #0b887f; font-size: 10px; }
+    .competency-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .competency-tag { color: #40566d; background: #f4f7fa; border: 1px solid #e2e9ef; border-radius: 8px; padding: 7px 9px; font-size: 10px; font-weight: 650; line-height: 1.35; transition: background .18s, border-color .18s, color .18s; }
+    .competency-tag:hover { color: #096f68; border-color: #b6e5de; background: #eaf9f6; }
+    .education-stack { display: flex; flex-direction: column; gap: 18px; }
+    .education-timeline { padding: 20px 23px 22px; }
+    .education-item { position: relative; padding: 4px 0 18px 25px; }
+    .education-item:last-child { padding-bottom: 0; }
+    .education-item::before { content: ""; position: absolute; left: 0; top: 9px; height: 10px; width: 10px; border: 3px solid #c6f0e9; background: #0b887f; border-radius: 50%; box-shadow: 0 0 0 4px #effbf8; }
+    .education-item:not(:last-child)::after { content: ""; position: absolute; left: 6px; top: 25px; bottom: 0; width: 1px; background: #d9e7eb; }
+    .education-date { color: #0b887f; font-size: 10px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .education-item h4 { margin: 5px 0 4px; color: #20374e; font-size: 14px; line-height: 1.4; letter-spacing: -.015em; }
+    .education-item p { color: #67798d; font-size: 11px; margin: 0; line-height: 1.6; }
+    .education-degree { display: inline-flex; margin-top: 9px; color: #50667b; background: #f0f5f8; border-radius: 7px; padding: 5px 8px; font-size: 10px; font-weight: 700; }
+    .certifications-panel { margin-top: 18px; border: 1px solid #e0e8f0; border-radius: 22px; padding: 23px; background: white; box-shadow: 0 12px 34px rgba(17,32,52,.045); }
+    .certifications-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 17px; }
+    .certifications-head h3 { margin: 6px 0 4px; color: #142338; font-size: 21px; letter-spacing: -.035em; }
+    .certifications-head p { margin: 0; color: #718095; font-size: 12px; }
+    .certification-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 11px; }
+    .certification-card { min-height: 112px; display: flex; gap: 12px; align-items: flex-start; padding: 15px; border: 1px solid #e5ebf1; border-radius: 14px; background: linear-gradient(145deg, #fff, #f8fafc); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .certification-card:hover { transform: translateY(-3px); border-color: #b7dedb; box-shadow: 0 10px 24px rgba(17,32,52,.07); }
+    .cert-mark { display: grid; place-items: center; flex: 0 0 34px; width: 34px; height: 34px; border-radius: 10px; color: #0b8178; background: #e4f8f4; font-size: 11px; font-weight: 900; letter-spacing: -.03em; }
+    .certification-card h4 { margin: 1px 0 5px; color: #263c53; font-size: 11px; line-height: 1.45; }
+    .certification-card p { margin: 0; color: #728195; font-size: 10px; line-height: 1.5; }
+    .credential-footnote { margin: 13px 1px 0; color: #8491a1; font-size: 10px; line-height: 1.5; }
+
+    /* Contact dialog */
+    .contact-modal[hidden] { display: none; }
+    .contact-modal { position: fixed; z-index: 120; inset: 0; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .contact-backdrop { position: absolute; inset: 0; background: rgba(7,15,27,.74); backdrop-filter: blur(8px); opacity: 0; transition: opacity .22s ease; }
+    .contact-dialog { width: min(520px, 100%); position: relative; z-index: 1; color: #142338; padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,.65); background: radial-gradient(circle at 100% 0, rgba(20,184,166,.10), transparent 35%), #fff; box-shadow: 0 32px 100px rgba(0,0,0,.35); opacity: 0; transform: translateY(14px) scale(.985); transition: opacity .22s ease, transform .22s ease; }
+    .contact-modal.is-open .contact-backdrop { opacity: 1; }
+    .contact-modal.is-open .contact-dialog { opacity: 1; transform: translateY(0) scale(1); }
+    .contact-close { position: absolute; top: 15px; right: 15px; width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid #e2e8ef; border-radius: 50%; color: #52647a; background: white; font-size: 21px; transition: background .18s, transform .18s; }
+    .contact-close:hover { background: #eff6f6; transform: rotate(90deg); }
+    .contact-icon-large { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; color: #087b72; background: linear-gradient(135deg, #dff9f3, #eaf0ff); font-size: 22px; font-weight: 900; margin-bottom: 19px; }
+    .contact-dialog .section-kicker { font-size: 10px; }
+    .contact-dialog h2 { margin: 7px 42px 8px 0; color: #142338; font-size: 29px; letter-spacing: -.045em; }
+    .contact-dialog-copy { margin: 0; color: #67798d; font-size: 13px; line-height: 1.75; }
+    .email-display { display: flex; align-items: center; gap: 12px; margin-top: 22px; padding: 14px; border: 1px solid #dce8ef; border-radius: 15px; background: #f8fbfc; }
+    .email-display-main { min-width: 0; flex: 1; }
+    .email-label { display: block; color: #7a8a9d; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; margin-bottom: 4px; }
+    .email-display a { color: #126f72; font-size: 13px; font-weight: 800; text-decoration: none; overflow-wrap: anywhere; }
+    .email-display a:hover { text-decoration: underline; }
+    .copy-email { flex: 0 0 auto; border: 1px solid #d7e3e8; border-radius: 9px; color: #324c61; background: white; padding: 9px 11px; font-size: 11px; font-weight: 800; transition: background .18s, border-color .18s; }
+    .copy-email:hover { background: #eaf8f5; border-color: #b6e4dc; }
+    .contact-dialog-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .contact-mail-action { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border-radius: 10px; padding: 11px 14px; background: #12243a; color: white; font-size: 12px; font-weight: 800; box-shadow: 0 7px 18px rgba(16,27,45,.13); }
+    .contact-mail-action:hover { background: #1b3b52; }
+    .contact-status { min-height: 17px; margin: 10px 1px 0; color: #0b887f; font-size: 11px; }
+
     @keyframes card-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 980px) {
       .hero-grid { gap: 30px; grid-template-columns: minmax(0,1.1fr) minmax(265px,.8fr); }
       .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
       .capability-grid { grid-template-columns: repeat(2,1fr); }
+      .credentials-layout { grid-template-columns: 1fr; }
+      .certification-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
       .impact-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
     }
     @media (max-width: 680px) {
@@ -217,6 +296,15 @@
       .project-grid { grid-template-columns: 1fr; }
       .project-card { padding: 19px; }
       .capability-grid { grid-template-columns: 1fr 1fr; }
+      .credential-panel-head { padding: 20px 18px 16px; }
+      .competency-groups { padding: 5px 18px 18px; }
+      .certifications-panel { padding: 18px; }
+      .certifications-head { align-items: flex-start; flex-direction: column; gap: 4px; }
+      .certification-grid { grid-template-columns: 1fr; }
+      .certification-card { min-height: 0; }
+      .contact-dialog { padding: 24px 18px 20px; border-radius: 19px; }
+      .email-display { flex-wrap: wrap; }
+      .email-display-main { min-width: calc(100% - 2px); }
       .closing-inner { align-items: flex-start; flex-direction: column; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .modal { padding: 7px; }
@@ -245,8 +333,9 @@
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="#projects">Projects</a>
-        <a href="#capabilities">Capabilities</a>
-        <a class="contact-link" href="mailto:siddhartha.p1610@gmail.com">Contact</a>
+        <a href="#capabilities">Expertise</a>
+        <a href="#credentials">Credentials</a>
+        <a class="contact-link" href="#contact-modal" data-contact-trigger>Contact</a>
       </nav>
     </div>
   </header>
@@ -261,7 +350,7 @@
           <p class="hero-copy">I work at the intersection of product strategy, AI/ML engineering, data, and business outcomes—taking enterprise AI capabilities from product vision and experimentation to embedded workflows and continuous improvement.</p>
           <div class="hero-actions">
             <a class="btn-primary" href="#projects">Explore project case studies <span aria-hidden="true">↘</span></a>
-            <a class="btn-secondary" href="mailto:siddhartha.p1610@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+            <a class="btn-secondary" href="#contact-modal" data-contact-trigger>Get in touch <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <aside class="hero-panel" aria-label="Selected product outcomes">
@@ -320,10 +409,127 @@
       </div>
     </section>
 
+    <section class="section credentials-section" id="credentials">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">The foundations</div>
+            <h2>Expertise, education & credentials</h2>
+            <p class="section-description">A blend of AI product leadership, technical delivery, enterprise strategy, and formal training—organized around the capabilities I bring to product teams.</p>
+          </div>
+        </div>
+
+        <div class="credentials-layout">
+          <section class="credential-panel competency-panel" aria-labelledby="competencyTitle">
+            <div class="credential-panel-head">
+              <div class="credential-overline">Core competencies</div>
+              <h3 id="competencyTitle">Product thinking. Technical fluency. Business value.</h3>
+              <p>Capabilities drawn from my product management, AI delivery, platform, and strategy experience.</p>
+            </div>
+            <div class="competency-groups">
+              <div class="competency-group">
+                <h4><span>01</span> AI product leadership</h4>
+                <div class="competency-tags">
+                  <span class="competency-tag">AI Product Strategy</span>
+                  <span class="competency-tag">0-to-1 AI Product Roadmap</span>
+                  <span class="competency-tag">AI Product Lifecycle Management</span>
+                  <span class="competency-tag">Agile Product Ownership</span>
+                  <span class="competency-tag">Product Launch & Launch Readiness</span>
+                  <span class="competency-tag">Stakeholder & Vendor Management</span>
+                  <span class="competency-tag">PRD & BRD Documentation</span>
+                  <span class="competency-tag">OKRs & KPI Tracking</span>
+                </div>
+              </div>
+              <div class="competency-group">
+                <h4><span>02</span> AI & technical product delivery</h4>
+                <div class="competency-tags">
+                  <span class="competency-tag">Agentic AI & LLMs</span>
+                  <span class="competency-tag">Retrieval-Augmented Generation (RAG)</span>
+                  <span class="competency-tag">Context Engineering & Multi-Agent Orchestration</span>
+                  <span class="competency-tag">LLM Evaluation & Benchmarking</span>
+                  <span class="competency-tag">MLOps & LLMOps</span>
+                  <span class="competency-tag">Model Drift & Latency Optimization</span>
+                  <span class="competency-tag">Data Quality & Knowledge Retrieval</span>
+                  <span class="competency-tag">AI Observability & Hallucination Mitigation</span>
+                  <span class="competency-tag">SDLC & API Integration</span>
+                  <span class="competency-tag">Responsible AI, XAI & HITL</span>
+                </div>
+              </div>
+              <div class="competency-group">
+                <h4><span>03</span> Business & enterprise strategy</h4>
+                <div class="competency-tags">
+                  <span class="competency-tag">Customer Discovery & Problem Framing</span>
+                  <span class="competency-tag">Go-to-Market Strategy</span>
+                  <span class="competency-tag">Corporate & Growth Strategy</span>
+                  <span class="competency-tag">Competitive & Market Research</span>
+                  <span class="competency-tag">IT Service Management (ITSM)</span>
+                  <span class="competency-tag">Enterprise SaaS & Workflow Automation</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="education-stack">
+            <section class="credential-panel education-panel" aria-labelledby="educationTitle">
+              <div class="credential-panel-head">
+                <div class="credential-overline">Education</div>
+                <h3 id="educationTitle">Academic foundation</h3>
+                <p>Business and engineering education supporting the bridge between technology and commercial outcomes.</p>
+              </div>
+              <div class="education-timeline">
+                <article class="education-item">
+                  <div class="education-date">2021 – 2023</div>
+                  <h4>T. A. Pai Management Institute (TAPMI)</h4>
+                  <p>Manipal, India</p>
+                  <span class="education-degree">PGDM · Marketing & Operations</span>
+                </article>
+                <article class="education-item">
+                  <div class="education-date">2013 – 2017</div>
+                  <h4>M. V. G. R. College of Engineering</h4>
+                  <p>India</p>
+                  <span class="education-degree">B.Tech · Electronics & Communication Engineering</span>
+                </article>
+              </div>
+            </section>
+            <section class="credential-panel" aria-label="Professional focus">
+              <div class="credential-panel-head">
+                <div class="credential-overline">Product focus</div>
+                <h3>From experimentation to measurable outcomes</h3>
+                <p>Product vision and discovery, AI/ML evaluation, responsible deployment, adoption, and continuous optimization across enterprise products.</p>
+              </div>
+              <div style="padding: 17px 22px 20px; display:flex; flex-wrap:wrap; gap:8px;">
+                <span class="skill">0-to-1 Product Delivery</span><span class="skill">AI/ML Products</span><span class="skill">Enterprise SaaS</span><span class="skill">Product Analytics</span><span class="skill">Workflow Automation</span><span class="skill">Commercial Strategy</span>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <section class="certifications-panel" aria-labelledby="certificationsTitle">
+          <div class="certifications-head">
+            <div>
+              <div class="credential-overline">Certifications & learning</div>
+              <h3 id="certificationsTitle">Professional development</h3>
+              <p>Credentials and courses listed in my resume.</p>
+            </div>
+            <span class="project-count">6 credentials</span>
+          </div>
+          <div class="certification-grid">
+            <article class="certification-card"><span class="cert-mark">SAFe</span><div><h4>SAFe® 6.0 Product Owner / Product Manager</h4><p>Scaled Agile Framework</p></div></article>
+            <article class="certification-card"><span class="cert-mark">G</span><div><h4>Project Management</h4><p>Google</p></div></article>
+            <article class="certification-card"><span class="cert-mark">AI</span><div><h4>Google AI Essentials</h4><p>Google</p></div></article>
+            <article class="certification-card"><span class="cert-mark">CM</span><div><h4>Connected Manager — Leadership & People Management</h4><p>Capgemini University · Harvard ManageMentor Spark</p></div></article>
+            <article class="certification-card"><span class="cert-mark">XL</span><div><h4>Microsoft Excel for Business: Advanced</h4><p>Macquarie University</p></div></article>
+            <article class="certification-card"><span class="cert-mark">M</span><div><h4>Marketing Concepts</h4><p>Bloomberg</p></div></article>
+          </div>
+          <p class="credential-footnote">Certification titles and education details are reproduced from the resume. No additional credentials or dates have been inferred.</p>
+        </section>
+      </div>
+    </section>
+
     <section class="closing">
       <div class="wrap closing-inner">
         <div><h2>Interested in building useful, trustworthy AI products?</h2><p>Let’s connect on product strategy, AI adoption, enterprise platforms, or applied AI delivery.</p></div>
-        <a class="btn-primary" href="mailto:siddhartha.p1610@gmail.com">Contact Siddhartha <span aria-hidden="true">↗</span></a>
+        <a class="btn-primary" href="#contact-modal" data-contact-trigger>Contact Siddhartha <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
@@ -331,6 +537,28 @@
   <footer>
     <div class="wrap footer-inner"><span>© <span id="year"></span> Siddhartha Pindi · AI & Data Product Portfolio</span><span>Conceptual workflow diagrams are based on resume descriptions, not proprietary production architecture.</span></div>
   </footer>
+
+  <div class="contact-modal" id="contactModal" hidden>
+    <div class="contact-backdrop" data-close-contact="true"></div>
+    <section class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contactTitle" tabindex="-1">
+      <button class="contact-close" type="button" id="contactClose" aria-label="Close contact details">×</button>
+      <div class="contact-icon-large" aria-hidden="true">@</div>
+      <div class="section-kicker">Get in touch</div>
+      <h2 id="contactTitle">Let’s start a conversation.</h2>
+      <p class="contact-dialog-copy">For conversations about AI product management, product strategy, or collaboration, you can reach me directly by email.</p>
+      <div class="email-display">
+        <div class="email-display-main">
+          <span class="email-label">Email address</span>
+          <a id="contactEmailLink" href="mailto:siddhartha.p1610@gmail.com">siddhartha.p1610@gmail.com</a>
+        </div>
+        <button class="copy-email" id="copyEmail" type="button">Copy email</button>
+      </div>
+      <div class="contact-dialog-actions">
+        <a class="contact-mail-action" href="mailto:siddhartha.p1610@gmail.com">Open email app <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="contact-status" id="contactStatus" role="status" aria-live="polite"></p>
+    </section>
+  </div>
 
   <div class="modal" id="projectModal" hidden>
     <div class="modal-backdrop" data-close-modal="true"></div>
@@ -587,6 +815,62 @@
       }
     ];
 
+    const contactModal = document.getElementById('contactModal');
+    const contactDialog = contactModal.querySelector('.contact-dialog');
+    const contactClose = document.getElementById('contactClose');
+    const contactEmail = 'siddhartha.p1610@gmail.com';
+    const contactStatus = document.getElementById('contactStatus');
+    let contactPreviouslyFocused = null;
+
+    function openContact(event) {
+      if (event) event.preventDefault();
+      contactPreviouslyFocused = document.activeElement;
+      contactStatus.textContent = '';
+      document.getElementById('copyEmail').textContent = 'Copy email';
+      contactModal.hidden = false;
+      document.body.classList.add('modal-open');
+      requestAnimationFrame(() => {
+        contactModal.classList.add('is-open');
+        contactClose.focus();
+      });
+    }
+
+    function closeContact() {
+      if (contactModal.hidden) return;
+      contactModal.classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+      window.setTimeout(() => {
+        contactModal.hidden = true;
+        if (contactPreviouslyFocused && typeof contactPreviouslyFocused.focus === 'function') contactPreviouslyFocused.focus();
+      }, 230);
+    }
+
+    document.querySelectorAll('[data-contact-trigger]').forEach(trigger => trigger.addEventListener('click', openContact));
+    contactClose.addEventListener('click', closeContact);
+    contactModal.querySelectorAll('[data-close-contact="true"]').forEach(el => el.addEventListener('click', closeContact));
+    document.getElementById('copyEmail').addEventListener('click', async () => {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(contactEmail);
+        } else {
+          const temporaryInput = document.createElement('textarea');
+          temporaryInput.value = contactEmail;
+          temporaryInput.setAttribute('readonly', '');
+          temporaryInput.style.position = 'fixed';
+          temporaryInput.style.opacity = '0';
+          document.body.appendChild(temporaryInput);
+          temporaryInput.select();
+          const copied = document.execCommand('copy');
+          temporaryInput.remove();
+          if (!copied) throw new Error('Clipboard copy unavailable');
+        }
+        document.getElementById('copyEmail').textContent = 'Copied!';
+        contactStatus.textContent = 'Email address copied to clipboard.';
+      } catch (error) {
+        contactStatus.textContent = 'Copy is unavailable in this browser. Select the email address above to copy it manually.';
+      }
+    });
+
     const grid = document.getElementById('projectGrid');
     const searchInput = document.getElementById('projectSearch');
     const countLabel = document.getElementById('projectCount');
@@ -687,8 +971,17 @@
     closeBtn.addEventListener('click', closeModal);
     modal.querySelectorAll('[data-close-modal="true"]').forEach(el => el.addEventListener('click', closeModal));
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && !modal.hidden) closeModal();
-      if (event.key === 'Tab' && !modal.hidden) {
+      if (event.key === 'Escape') {
+        if (!contactModal.hidden) closeContact();
+        else if (!modal.hidden) closeModal();
+      }
+      if (event.key === 'Tab' && !contactModal.hidden) {
+        const focusable = [...contactDialog.querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])')].filter(el => !el.disabled);
+        if (!focusable.length) return;
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      } else if (event.key === 'Tab' && !modal.hidden) {
         const focusable = [...modalPanel.querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])')].filter(el => !el.disabled);
         if (!focusable.length) return;
         const first = focusable[0], last = focusable[focusable.length - 1];
