@@ -1,4 +1,3 @@
-
 # Pindi Srinivasa Shanmukha Siddhartha
 ### Product Manager – Artificial Intelligence (AI) & Data
 
@@ -44,11 +43,3 @@ flowchart LR
     D --> F
     F --> G[UAT, A/B Testing & AI Evals]
     G --> H[36%–40% Faster Response Times]
-flowchart TD
-    A[Multi-Modal Interactions, Sentiment & Preferences] --> B[Scalable Data Pipelines & Feature Stores]
-    B --> C[Phase 1: LLM Prompt Scoring Prototype]
-    C --> D[Phase 2: Predictive ML Model]
-    D --> E[Phase 3: Hybrid LLM + ML Architecture]
-    F[MLOps: CI/CD for ML, Versioning & Live Ingestion] --> E
-    E --> G[Embedded SaaS Real-Time Recommendations]
-    G --> H[A/B Tested: +14% Sales Conversion Lift]
